@@ -1,4 +1,4 @@
 # php
-vendor/**/*.*
+app/vendor/**/*.*
 *.dist
 *.lock
