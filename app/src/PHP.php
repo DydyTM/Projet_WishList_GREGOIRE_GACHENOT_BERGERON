@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Foo
+class PHP
 {
     public function getName()
     {

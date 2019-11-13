@@ -1,8 +1,7 @@
 <?php
 
 include '../app/vendor/autoload.php';
-use App;
-$me = new PHP();
+$me = new App\PHP();
 
 ?><!DOCTYPE html>
 <html>
