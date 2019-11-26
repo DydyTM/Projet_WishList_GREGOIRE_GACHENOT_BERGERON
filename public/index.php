@@ -1,7 +1,6 @@
 <?php
 
 include '../app/vendor/autoload.php';
-$me = new App\PHP();
 
 ?><!DOCTYPE html>
 <html>
@@ -10,6 +9,6 @@ $me = new App\PHP();
         <title>Main</title>
     </head>
     <body>
-        <h1>Hello from <?php echo $me->getName(); ?></h1>
+        <h1>Hello, World!</h1>
     </body>
 </html>
