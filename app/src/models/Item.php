@@ -23,6 +23,6 @@ namespace wishlist\models {
 
 namespace wishlist\models\pretty\item {
     function pprint($i) {
-        return "Item #" . $i['liste_id'] . ":" . $i['id'] . ": " . $i['nom'] . " ; " . $i['descr'] . " ; " . $i['tarif'];
+        return "Item #" . $i['liste_id'] . ":" . $i['id'] . ": " . $i['nom'] . " ; " . $i['descr'] . ", " . $i['tarif'] . " €";
     }
 }
