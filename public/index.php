@@ -36,5 +36,23 @@ WL\database\Connection::connect();
                 echo WL\models\pretty\item\pprint($i) . '<br/>';
             }
         ?>
+        <br/>
+        <h2>Item et liste :</h2>
+        <?php
+            $lastItem = WL\models\Item::get()->last();
+            $a = new WL\models\Item();
+            $a->id = $lastItem->id + 1;
+            $a->liste_id = '2';
+            $a->nom = 'Switch';
+            $a->descr = 'Console de chez Nintendo';
+            $a->img = 'switch.png';
+            $a->url = '';
+            $a->tarif = '300';
+            $a->save();
+
+            $insert = WL\models\Item::where('id', '=', $a->id)->first();
+            echo WL\models\pretty\item\pprint($insert) . '<br/>';
+            $a->delete();
+        ?>
     </body>
 </html>
