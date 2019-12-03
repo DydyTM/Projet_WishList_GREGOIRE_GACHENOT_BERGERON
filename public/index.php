@@ -12,12 +12,20 @@ WL\Test::connect();
         <title>Main</title>
     </head>
     <body>
-        <h1>Hello, World!</h1>
+        <h2>Liste de souhaits :</h2>
         <?php
             $l = WL\models\Liste::get();
             foreach ($l as $ls) {
                 echo $ls . '<br/>';
             }  
+        ?>
+        <br/>
+        <h2>Liste des items :</h2>
+        <?php
+            $i = WL\models\Item::get();
+            foreach ($i as $li) {
+                echo $li . '<br/>';
+            } 
         ?>
     </body>
 </html>
