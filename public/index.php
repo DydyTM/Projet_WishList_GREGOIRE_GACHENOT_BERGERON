@@ -50,7 +50,9 @@ WL\Test::connect();
             $a->tarif = '300';
             $a->save();
 
-        echo WL\models\Item::where('id', '=', $a->id)->first();
+            $insert = WL\models\Item::where('id', '=', $a->id)->first();
+            echo WL\models\pretty\item\pprint($insert) . '<br/>';
+            $a->delete();
         ?>
     </body>
 </html>
