@@ -26,6 +26,15 @@ WL\Test::connect();
             foreach ($i as $li) {
                 echo WL\models\pretty\item\pprint($li) . '<br/>';
             } 
+
+        ?>
+        <br/>
+        <h2>Item id url :</h2>
+        <?php
+            foreach ($_GET as $id) {
+                $i = WL\models\Item::where('id', '=', $id)->first();
+                echo WL\models\pretty\item\pprint($i) . '<br/>';
+            }
         ?>
     </body>
 </html>
