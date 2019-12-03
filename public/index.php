@@ -3,7 +3,7 @@
 include '../app/vendor/autoload.php';
 use wishlist as WL;
 
-WL\Test::connect();
+WL\database\Connection::connect();
 
 ?><!DOCTYPE html>
 <html>
