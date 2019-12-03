@@ -16,7 +16,7 @@ WL\Test::connect();
         <?php
             $l = WL\models\Liste::get();
             foreach ($l as $ls) {
-                echo $ls . '<br/>';
+                echo WL\models\pretty\liste\pprint($ls) . '<br/>';
             }  
         ?>
         <br/>
@@ -24,14 +24,16 @@ WL\Test::connect();
         <?php
             $i = WL\models\Item::get();
             foreach ($i as $li) {
-                echo $li . '<br/>';
-            }
+                echo WL\models\pretty\item\pprint($li) . '<br/>';
+            } 
+
         ?>
         <br/>
         <h2>Item id url :</h2>
         <?php
             foreach ($_GET as $id) {
-                echo WL\models\Item::where('id', '=', $id)->first();
+                $i = WL\models\Item::where('id', '=', $id)->first();
+                echo WL\models\pretty\item\pprint($i) . '<br/>';
             }
         ?>
         <br/>

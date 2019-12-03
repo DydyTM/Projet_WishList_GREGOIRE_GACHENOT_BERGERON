@@ -1,8 +1,7 @@
 <?php
 
-namespace wishlist\models;
-
-class Liste extends \Illuminate\Database\Eloquent\Model {
+namespace wishlist\models {
+    class Liste extends \Illuminate\Database\Eloquent\Model {
 
     protected $table = 'liste';
     protected $id = 'id';
@@ -14,4 +13,11 @@ class Liste extends \Illuminate\Database\Eloquent\Model {
     public $timestamps = false;
 
 
+    }
+}
+
+namespace wishlist\models\pretty\liste {
+    function pprint($l) {
+        return "Liste #" . $l['no'] . " of user #" . $l['user_id'] . ": " . $l['titre'] . " ; " . $l['description'] . " ; Expires: " . $l['expiration'];
+    }
 }

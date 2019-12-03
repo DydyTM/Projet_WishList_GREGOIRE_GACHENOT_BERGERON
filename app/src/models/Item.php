@@ -1,10 +1,10 @@
 <?php
 
 
-namespace wishlist\models;
+namespace wishlist\models {
 
-class Item extends \Illuminate\Database\Eloquent\Model
-{
+    class Item extends \Illuminate\Database\Eloquent\Model
+    {
 
     protected $table = 'item';
     protected $id = 'id';
@@ -17,4 +17,12 @@ class Item extends \Illuminate\Database\Eloquent\Model
     public $timestamps = false;
 
 
+    }
+
+}
+
+namespace wishlist\models\pretty\item {
+    function pprint($i) {
+        return "Item #" . $i['liste_id'] . ":" . $i['id'] . ": " . $i['nom'] . " ; " . $i['descr'] . ", " . $i['tarif'] . " €";
+    }
 }
