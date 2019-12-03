@@ -15,8 +15,8 @@ WL\Test::connect();
         <h1>Hello, World!</h1>
         <?php
             $l = WL\models\Liste::get();
-            foreach ($l as $i) {
-                echo $i . '<br/>';
+            foreach ($l as $ls) {
+                echo $ls . '<br/>';
             }  
         ?>
     </body>
