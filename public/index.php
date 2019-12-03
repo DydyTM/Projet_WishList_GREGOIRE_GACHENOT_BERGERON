@@ -16,7 +16,7 @@ WL\Test::connect();
         <?php
             $l = WL\models\Liste::get();
             foreach ($l as $ls) {
-                echo $ls . '<br/>';
+                echo WL\models\pretty\liste\pprint($ls) . '<br/>';
             }  
         ?>
         <br/>
@@ -24,7 +24,7 @@ WL\Test::connect();
         <?php
             $i = WL\models\Item::get();
             foreach ($i as $li) {
-                echo $li . '<br/>';
+                echo WL\models\pretty\item\pprint($li) . '<br/>';
             } 
         ?>
     </body>
