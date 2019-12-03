@@ -25,7 +25,14 @@ WL\Test::connect();
             $i = WL\models\Item::get();
             foreach ($i as $li) {
                 echo $li . '<br/>';
-            } 
+            }
+        ?>
+        <br/>
+        <h2>Item id url :</h2>
+        <?php
+            foreach ($_GET as $id) {
+                echo WL\models\Item::where('id', '=', $id)->first();
+            }
         ?>
     </body>
 </html>
