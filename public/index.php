@@ -14,8 +14,10 @@ WL\Test::connect();
     <body>
         <h1>Hello, World!</h1>
         <?php
-            $l = WL\models\Liste::where('no', '=', 1) -> first();
-            echo $l;
+            $l = WL\models\Liste::get();
+            foreach ($l as $i) {
+                echo $i . '<br/>';
+            }  
         ?>
     </body>
 </html>
