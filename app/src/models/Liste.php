@@ -12,6 +12,9 @@ namespace wishlist\models {
     protected $token = 'token';
     public $timestamps = false;
 
+   function items() {
+        return $this->hasMany('wishlist\models\Item, id_liste');
+    }
 
     }
 }

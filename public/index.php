@@ -54,5 +54,11 @@ WL\database\Connection::connect();
             echo WL\models\pretty\item\pprint($insert) . '<br/>';
             $a->delete();
         ?>
+        <br/>
+        <h2>Association Liste Item</h2>
+        <?php
+            $i = WL\models\Item::where('id', '=', '12')->first();
+            $l = $i->liste();
+        ?>
     </body>
 </html>

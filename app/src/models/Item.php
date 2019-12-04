@@ -16,6 +16,9 @@ namespace wishlist\models {
     protected $tarif = 'tarif';
     public $timestamps = false;
 
+    function liste() {
+        return $this->belongsTo('wishlist\models\Liste, id_liste');
+    }
 
     }
 
