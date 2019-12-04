@@ -26,15 +26,15 @@ WL\database\Connection::connect();
             foreach ($i as $li) {
                 echo WL\models\pretty\item\pprint($li) . '<br/>';
             } 
-
         ?>
         <br/>
         <h2>Item id url :</h2>
         <?php
-            foreach ($_GET as $id) {
-                $i = WL\models\Item::where('id', '=', $id)->first();
-                echo WL\models\pretty\item\pprint($i) . '<br/>';
-            }
+        if(isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $i = WL\models\Item::where('id', '=', $id)->first();
+            echo WL\models\pretty\item\pprint($i) . '<br/>';
+        }
         ?>
         <br/>
         <h2>Item et liste :</h2>
@@ -49,7 +49,6 @@ WL\database\Connection::connect();
             $a->url = '';
             $a->tarif = 300;
             $a->save();
-
             $insert = WL\models\Item::where('id', '=', $a->id)->first();
             echo WL\models\pretty\item\pprint($insert) . '<br/>';
             $a->delete();
@@ -58,7 +57,15 @@ WL\database\Connection::connect();
         <h2>Association Liste Item</h2>
         <?php
             $i = WL\models\Item::where('id', '=', '12')->first();
-            $l = $i->liste();
+            $l = $i->liste;
+            echo WL\models\pretty\liste\pprint($l) . '<br/><br/>';
+            if(isset($_GET['no'])) {
+                $no = $_GET['no'];
+                $li = WL\models\Liste::where('no', '=', $no)->first();
+                $it = $li->items;
+                foreach ($it as $item)
+                    echo WL\models\pretty\item\pprint($item) . '<br/>';
+            }
         ?>
     </body>
 </html>

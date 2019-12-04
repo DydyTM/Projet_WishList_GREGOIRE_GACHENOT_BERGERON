@@ -17,7 +17,7 @@ namespace wishlist\models {
     public $timestamps = false;
 
     function liste() {
-        return $this->belongsTo('wishlist\models\Liste, id_liste');
+        return $this->belongsTo('wishlist\models\Liste', 'liste_id','no');
     }
 
     }
