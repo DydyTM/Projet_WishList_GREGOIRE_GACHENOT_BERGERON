@@ -14,11 +14,11 @@ class VueParticipant {
 
     private function showListLists() {
         $html = '<ul>';
-        $print_ = function($l) {
-            return "<li><p>" . ListePretty\pprint($l) . "</p></li>";
+        $print_ = function($acc, $l) {
+            return $acc . "<li><p>" . ListePretty\pprint($l) . "</p></li>";
         };
 
-        $html .= array_reduce($this->list, print_);
+        $html .= array_reduce($this->list, $print_, "");
         $html .= '</ul>';
         return $html;
     }
@@ -29,7 +29,7 @@ class VueParticipant {
             return "<li><p>" . ItemPretty\pprint($l) . "</p></li>";
         };
 
-        $html .= array_reduce($this->list, print_);
+        $html .= array_reduce($this->list, $print_);
         $html .= '</ul>';
         return $html;
     }

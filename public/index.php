@@ -3,6 +3,7 @@
 require __DIR__ . '/../app/vendor/autoload.php';
 
 use wishlist\models\Item as Item;
+use wishlist\models\Liste as Liste;
 use wishlist\views as V;
 
 \wishlist\database\Connection::connect();
@@ -11,7 +12,14 @@ $app = new \Slim\Slim();
 
 // 1 : Affiche une liste de souhaits
 $app->get('/liste/:id', function ($id) {
-    echo "Affiche une liste $id de souhaits";
+    $list = Liste::where('id', '=', $id)->first();
+    if (!$list) {
+        echo "<p>No wishlist found with id '$id'</p>";
+        return;
+    }
+
+    $view = new V\VueParticipant($list->items());
+    $view->render(2);
 });
 
 // 2 : Affiche un item d'une liste
@@ -52,6 +60,13 @@ $app->get('/zrtYes', function() {
 
 $app->get('/blob', function() {
    echo  '<img width=512 src="https://raw.githubusercontent.com/Mesabloo/blob/master/assets/icon.png" alt=":blob:">';
+});
+
+$app->get('/', function() {
+    $lists = Liste::all();
+
+    $view = new V\VueParticipant($lists->toArray());
+    $view->render(1);
 });
 
 $app->run();
