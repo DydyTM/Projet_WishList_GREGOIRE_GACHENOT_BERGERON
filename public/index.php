@@ -22,10 +22,8 @@ $app->get('/liste/:id/items/:id_item', function ($id, $id_item) {
         return;
     }
 
-    $view = new V\VueParticipant($item);
+    $view = new V\VueParticipant([$item]);
     $view->render(3);
-
-    echo "Affiche un item $id_item d'une liste $id";
 });
 
 // 6 : Créer une liste

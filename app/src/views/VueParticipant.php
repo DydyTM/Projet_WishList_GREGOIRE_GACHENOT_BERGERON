@@ -8,34 +8,34 @@ use wishlist\models\pretty\item as ItemPretty;
 class VueParticipant {
     private $list;
 
-    public function __construct__($list) {
+    public function __construct($list) {
         $this->list = $list;
     }
 
     private function showListLists() {
         $html = '<ul>';
         $print_ = function($l) {
-            return "<li><p>" + \ListePretty\pprint($l) + "</p></li>";
+            return "<li><p>" . ListePretty\pprint($l) . "</p></li>";
         };
 
-        $html += array_reduce($this->list, print_);
-        $html += '</ul>';
+        $html .= array_reduce($this->list, print_);
+        $html .= '</ul>';
         return $html;
     }
 
     private function showListItems() {
         $html = '<ul>';
         $print_ = function($l) {
-            return "<li><p>" + \ItemPretty\pprint($l) + "</p></li>";
+            return "<li><p>" . ItemPretty\pprint($l) . "</p></li>";
         };
 
-        $html += array_reduce($this->list, print_);
-        $html += '</ul>';
+        $html .= array_reduce($this->list, print_);
+        $html .= '</ul>';
         return $html;
     }
 
     private function showItem() {
-        return "<p>" + \ItemPretty\pprint($this->list[0]) + "</p>";
+        return "<p>" . ItemPretty\pprint($this->list[0]) . "</p>";
     }
 
     public function render($mode) {
