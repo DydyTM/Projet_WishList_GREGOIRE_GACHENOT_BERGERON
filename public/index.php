@@ -5,6 +5,8 @@ require __DIR__ . '/../app/vendor/autoload.php';
 use wishlist\models\Item as Item;
 use wishlist\views as V;
 
+\wishlist\database\Connection::connect();
+
 $app = new \Slim\Slim();
 
 // 1 : Affiche une liste de souhaits
@@ -20,7 +22,7 @@ $app->get('/liste/:id/items/:id_item', function ($id, $id_item) {
         return;
     }
 
-    $view = new \V\VueParticipant($item);
+    $view = new V\VueParticipant($item);
     $view->render(3);
 
     echo "Affiche un item $id_item d'une liste $id";

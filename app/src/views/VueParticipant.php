@@ -41,13 +41,13 @@ class VueParticipant {
     public function render($mode) {
         switch ($mode) {
             case 1:
-                echo showListLists();
+                echo $this->showListLists();
                 break;
             case 2:
-                echo showListItems();
+                echo $this->showListItems();
                 break;
             case 3:
-                echo showItem();
+                echo $this->showItem();
                 break;
             default:
                 echo "<h1>Unknwon mode $mode</h1>";
