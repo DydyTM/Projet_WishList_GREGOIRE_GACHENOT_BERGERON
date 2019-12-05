@@ -1,6 +1,9 @@
 <?php
 
-require __DIR__.'/../app/vendor/autoload.php';
+require __DIR__ . '/../app/vendor/autoload.php';
+
+use wishlist\models\Item as Item;
+use wishlist\views as V;
 
 $app = new \Slim\Slim();
 
@@ -11,6 +14,15 @@ $app->get('/liste/:id', function ($id) {
 
 // 2 : Affiche un item d'une liste
 $app->get('/liste/:id/items/:id_item', function ($id, $id_item) {
+    $item = Item::where('id', '=', $id_item)->first();
+    if (!$item) {
+        echo "<p>No item found with id '$id_item'</p>";
+        return;
+    }
+
+    $view = new \V\VueParticipant($item);
+    $view->render(3);
+
     echo "Affiche un item $id_item d'une liste $id";
 });
 
