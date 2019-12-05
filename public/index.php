@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__.'/../app/vendor/autoload.php';
+
 $app = new \Slim\Slim();
 
 // 1 : Affiche une liste de souhaits
@@ -31,5 +33,15 @@ $app->post('/liste/:id/publique', function ($id) {
 $app->get('/liste/publique', function() {
     echo "Afficher les listes de souhaits publique";
 });
+
+$app->get('/zrtYes', function() {
+    echo '<img src="https://cdn.discordapp.com/emojis/571352374325673995.png?v=1" alt=":zrtYes:">';
+});
+
+$app->get('/blob', function() {
+   echo  '<img width=512 src="https://raw.githubusercontent.com/Mesabloo/blob/master/assets/icon.png" alt=":blob:">';
+});
+
+$app->run();
 
 ?>
