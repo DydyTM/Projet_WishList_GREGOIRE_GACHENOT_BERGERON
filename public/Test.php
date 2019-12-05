@@ -57,11 +57,9 @@ $a->delete();
 <br/>
 <h2>Association Liste Item</h2>
 <?php
-$i = WL\models\Item::where('id', '=', '12')->first();
+$i = WL\models\Item::where('id', '=', '2')->first();
 $l = $i->liste();
 ?>
 </body>
 </html>
-
-?>
 
