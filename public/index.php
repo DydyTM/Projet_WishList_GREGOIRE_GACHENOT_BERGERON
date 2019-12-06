@@ -41,7 +41,7 @@
 
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href=".">
             <div class="sidebar-brand-icon rotate-n-15">
-              <i class="fas fa-laugh-wink"></i>
+                <img class="imageWishList" src="https://www.premiersmoments.com/wp-content/uploads/2017/11/Logo-Cadeau-PM.png" height="30" width="30"  alt="">
             </div>
             <div class="sidebar-brand-text mx-3">My Wishlist</div>
           </a>
@@ -179,8 +179,8 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Stash Doggo</span>
+                <img class="img-profile rounded-circle" src="https://img.icons8.com/pastel-glyph/2x/person-male.png">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -218,16 +218,15 @@
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl col-md mb">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Liste publique 1</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      <img class="flecheDroite" src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c44e.png" height="40" width="40" alt="">
                     </div>
                   </div>
                 </div>
@@ -244,7 +243,8 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; My Wishlist 2019</span>
+            <span>Copyright &copy; My Wishlist 2019<br></span>
+              <span><br>BERGERON Ghilain, GRÉGOIRE Dylan, GACHENOT Antoine</span>
           </div>
         </div>
       </footer>
