@@ -5808,9 +5808,9 @@ core_defaults._set('scatter', {
 // Scatter charts use line controllers
 var controller_scatter = controller_line;
 
-// NOTE export a map in which the key represents the controller type, not
+// NOTE export a map in which the key represents the controllers type, not
 // the class, and so must be CamelCase in order to be correctly retrieved
-// by the controller in core.controller.js (`controllers[meta.type]`).
+// by the controllers in core.controllers.js (`controllers[meta.type]`).
 
 var controllers = {
 	bar: controller_bar,
@@ -6606,7 +6606,7 @@ function readUsedSize(element, property) {
 
 /**
  * Initializes the canvas style and render size without modifying the canvas display size,
- * since responsiveness is handled by the controller.resize() method. The config is used
+ * since responsiveness is handled by the controllers.resize() method. The config is used
  * to determine the aspect ratio to apply in case no explicit height has been specified.
  */
 function initCanvas(canvas, config) {
@@ -8444,7 +8444,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 		 * @private
 		 */
 		me.chart = me;
-		me.controller = me; // chart.chart.controller #inception
+		me.controller = me; // chart.chart.controllers #inception
 
 		// Add the chart instance to the global namespace
 		Chart.instances[me.id] = me;
@@ -8461,7 +8461,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 
 		if (!context || !canvas) {
 			// The given item is not a compatible context2d element, let's return before finalizing
-			// the chart initialization but after setting basic chart / controller properties that
+			// the chart initialization but after setting basic chart / controllers properties that
 			// can help to figure out that the chart is not valid (e.g chart.canvas !== null);
 			// https://github.com/chartjs/Chart.js/issues/2807
 			console.error("Failed to create chart: can't acquire context from the given item");
@@ -18315,7 +18315,7 @@ core_defaults._set('global', {
 			var ci = this.chart;
 			var meta = ci.getDatasetMeta(index);
 
-			// See controller.isDatasetVisible comment
+			// See controllers.isDatasetVisible comment
 			meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
 
 			// We hid a dataset ... rerender the chart
