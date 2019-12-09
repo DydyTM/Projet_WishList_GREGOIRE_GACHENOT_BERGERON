@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../app/vendor/autoload.php';
+require_once __DIR__ . '/../app/vendor/autoload.php';
 
 use wishlist\controllers\ControllerList as ControllerList;
 use wishlist\controllers\ControllerItem as ControllerItem;
