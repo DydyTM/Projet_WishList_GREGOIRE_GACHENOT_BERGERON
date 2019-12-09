@@ -52,7 +52,8 @@ $app->get('/zrtYes', function() {
 });
 
 $app->get('/blob', function() {
-    echo  '<img width=512 src="https://raw.githubusercontent.com/Mesabloo/blob/master/assets/icon.png" alt=":blob:">';
+    echo  '<img width=512 src="https://raw.githubusercontent.com/Mesabloo/blob/master/assets/icon.png" alt=":blob:"><br>';
+    echo '<a href="https://github.com/Mesabloo/blob">https://github.com/Mesabloo/blob</a>';
 });
 
 $lists = 'hello';
