@@ -3,6 +3,7 @@
 require __DIR__ . '/../app/vendor/autoload.php';
 
 use wishlist\controllers\ControllerList as ControllerList;
+use wishlist\controllers\ControllerItem as ControllerItem;
 
 \wishlist\database\Connection::connect();
 
@@ -339,7 +340,7 @@ $app->run();
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="html/login.html">Logout</a>
         </div>
       </div>
     </div>
