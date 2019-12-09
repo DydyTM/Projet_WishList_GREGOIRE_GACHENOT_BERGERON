@@ -31,7 +31,8 @@ namespace wishlist\models\pretty\liste {
                             <div class=\"text-m font-weight-bold text-primary text-uppercase mb-1\"><u>Liste #" . $l['no'] . ": " . $l['titre'] . "</u><br>" . $l['description'] . "</div>
                         </div>
                         <div class=\"col-auto\">
-                            <img class=\"flecheDroite\" src=\"https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c44e.png\" height=\"40\" width=\"40\" alt=\"\">
+                            <img class=\"flecheDroite\" src=\"https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c44e.png\" height=\"40\" width=\"40\" alt=\"\"
+                                onclick=\"window.location.href='/liste/" . $l['no'] . "'\">
                         </div>
                     </div>
                     </div>
