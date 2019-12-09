@@ -13,29 +13,25 @@ class VueParticipant {
     }
 
     private function showListLists() {
-        $html = '<ul>';
         $print_ = function($acc, $l) {
-            return $acc . "<li><p>" . ListePretty\pprint($l) . "</p></li>";
+            return $acc . ListePretty\pprint($l);
         };
 
-        $html .= array_reduce($this->list, $print_, "");
-        $html .= '</ul>';
+        $html = array_reduce($this->list, $print_, "");
         return $html;
     }
 
     private function showListItems() {
-        $html = '<ul>';
-        $print_ = function($l) {
-            return "<li><p>" . ItemPretty\pprint($l) . "</p></li>";
+        $print_ = function($acc, $l) {
+            return $acc . ItemPretty\pprint($l);
         };
 
-        $html .= array_reduce($this->list, $print_);
-        $html .= '</ul>';
+        $html = array_reduce($this->list, $print_, '');
         return $html;
     }
 
     private function showItem() {
-        return "<p>" . ItemPretty\pprint($this->list[0]) . "</p>";
+        return ItemPretty\pprint($this->list[0]);
     }
 
     public function render($mode) {
@@ -51,6 +47,19 @@ class VueParticipant {
                 break;
             default:
                 echo "<h1>Unknwon mode $mode</h1>";
+        }
+    }
+
+    public function to_string($mode) {
+        switch ($mode) {
+            case 1:
+                return $this->showListLists();
+            case 2:
+                return $this->showListItems();
+            case 3:
+                return $this->showItem();
+            default:
+                return "<h1>Unknwon mode $mode</h1>";
         }
     }
 }

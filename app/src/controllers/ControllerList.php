@@ -45,7 +45,7 @@ class ControllerList
         $lists = Liste::all();
 
         $view = new VueParticipant($lists->toArray());
-        $view->render(1);
+        return $view->to_string(1);
     }
 }
 
