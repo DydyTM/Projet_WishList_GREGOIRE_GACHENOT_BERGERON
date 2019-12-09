@@ -14,7 +14,7 @@ class VueParticipant {
 
     private function showListLists() {
         $print_ = function($acc, $l) {
-            return $acc . ListePretty\pprint($l);
+            return $acc . ListePretty\pprint_small($l);
         };
 
         $html = array_reduce($this->list, $print_, "");
@@ -23,7 +23,7 @@ class VueParticipant {
 
     private function showListItems() {
         $print_ = function($acc, $l) {
-            return $acc . ItemPretty\pprint($l);
+            return $acc . ItemPretty\pprint_large($l);
         };
 
         $html = array_reduce($this->list, $print_, '');

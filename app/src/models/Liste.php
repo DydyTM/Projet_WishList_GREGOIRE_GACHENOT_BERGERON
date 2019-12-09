@@ -20,7 +20,7 @@ namespace wishlist\models {
 }
 
 namespace wishlist\models\pretty\liste {
-    function pprint($l) {
+    function pprint_small($l) {
         $format = "
         <div class=\"row\">
             <div class=\"col-l col-md mb\">
@@ -42,5 +42,9 @@ namespace wishlist\models\pretty\liste {
 
         return $format; 
         //return "Liste #" . $l['no'] . " of user #" . $l['user_id'] . ": " . $l['titre'] . " ; " . $l['description'] . " ; Expires: " . $l['expiration'];
+    }
+
+    function pprint_large($l) {
+        return "";
     }
 }
