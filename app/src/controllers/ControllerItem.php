@@ -3,7 +3,7 @@
 
 namespace wishlist\controllers;
 
-use wishlist\views\VueParticipant as VueParticipant;
+use wishlist\views\VueItem as VueItem;
 use wishlist\models\Item as Item;
 
 class ControllerItem
@@ -17,7 +17,7 @@ class ControllerItem
             return;
         }
 
-        $view = new VueParticipant([$item]);
+        $view = new VueItem([$item]);
         $view->render(3);
     }
 }

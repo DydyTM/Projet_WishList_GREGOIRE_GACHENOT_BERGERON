@@ -3,7 +3,8 @@
 
 namespace wishlist\controllers;
 
-use wishlist\views\VueParticipant as VueParticipant;
+use wishlist\views\VueItem as VueItem;
+use wishlist\views\VueListe as VueListe;
 use wishlist\models\Liste as Liste;
 
 class ControllerList
@@ -16,7 +17,7 @@ class ControllerList
             echo "<p>No wishlist found with no '$no'</p>";
             return;
         }
-        $view = new VueParticipant($list->items()->toArray());
+        $view = new VueItem($list->items()->toArray());
         return $view->to_string(2);
     }
 
@@ -44,7 +45,7 @@ class ControllerList
     {
         $lists = Liste::orderBy('expiration')->get();
 
-        $view = new VueParticipant($lists->toArray());
+        $view = new VueListe($lists->toArray());
         return $view->to_string(1);
     }
 }
