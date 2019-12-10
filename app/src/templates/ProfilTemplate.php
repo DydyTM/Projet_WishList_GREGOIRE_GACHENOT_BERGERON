@@ -57,7 +57,8 @@ class ProfilTemplate extends Template {
 
     public static function profile() {
         $pseudo = $_COOKIE['pseudo'];
-        return "Page de profil de " . $pseudo . " <a href='/profil'></a> !  <a href='/nouveau/liste'>Créer une nouvelle liste</a>";
+        return "Page de profil de " . $pseudo . " <a href='/profil'></a> !<br>
+            <form action='/nouveau/liste' method='GET'><input type=submit value='Créer une nouvelle liste'/></form>";
     }
 }
 
