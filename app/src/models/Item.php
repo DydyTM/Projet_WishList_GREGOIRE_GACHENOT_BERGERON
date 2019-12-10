@@ -26,6 +26,27 @@ namespace wishlist\models {
 
 namespace wishlist\models\pretty\item {
     function pprint($i) {
-        return "Item #" . $i['liste_id'] . ":" . $i['id'] . ": " . $i['nom'] . " ; " . $i['descr'] . ", " . $i['tarif'] . " €";
+        $img = $i['img'];
+        $format = "
+        <div class=\"row\">
+            <div class=\"col-l col-md mb\">
+                <div class=\"card border-left-primary shadow h-100 py-2\">
+                    <div class=\"card-body\">
+                    <div class=\"row no-gutters align-items-center\">
+                        <img class=\"imageObjet\" src=\"/img\" ". $img." height='50' width='50'> 
+                        <div class=\"col mr-2\">
+                            <div class=\"text-m font-weight-bold text-primary text-uppercase mb-1\"><u>Item #" . $i['id'] . ": " . $i['liste_id'] . ":  " . $i['nom'] ."</u><br>" . $i['descr'] . ": ". $i['tarif']. "</div>
+                        </div>
+                        <div class=\"col-auto\">
+                            <!-- <img class=\"flecheDroite\" src=\"https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c44e.png\" height=\"40\" width=\"40\" alt=\"\"> -->
+                                <!-- onclick=\"window.location.href='/liste/" . $i['id'] . "'\"> -->
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>";
+
+        return $format;
     }
 }
