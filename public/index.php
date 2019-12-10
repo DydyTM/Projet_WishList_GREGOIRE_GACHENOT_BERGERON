@@ -52,7 +52,7 @@ $app->post('/liste/:id/infos', function ($no) {
     $infListe->infosListe($no);
 })->name('infosListe');
 
-// 17 : creer un compte
+// 17 : creer un compte : OK
 $app->get('/signup', function() {
     $createAccountForm = new ControllerUser();
     $createAccountForm->inscriptionUser();
@@ -88,9 +88,6 @@ $app->get('/login', function() {
    $connectAccountForm->connexionUser();
 });
 $app->post('/login', function() {
-    // Test User existe et mot de passe correct
-    // Rajout cookies pour la connexion
-    // Redirection vers la homepage
     $pseudo = $_POST['pseudo'];
     $MDP = $_POST['pass'];
     $u = Utilisateur::where('pseudo', '=', $pseudo)->get();
@@ -106,6 +103,11 @@ $app->post('/login', function() {
     } else {
         header("Refresh:0; url=/login");
     }
+});
+
+$app->get('/profil', function() {
+   $affProfil = new ControllerUser();
+   $affProfil->pageProfil();
 });
 
 // 20 : Rendre une liste publique

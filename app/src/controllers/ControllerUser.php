@@ -15,6 +15,10 @@ class ControllerUser {
         VueConnexion::render_with(ProfilTemplate::generateSignup());
     }
 
+    public function pageProfil() {
+        VueConnexion::render_with(ProfilTemplate::profile());
+    }
+
 
 }
 
