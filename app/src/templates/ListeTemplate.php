@@ -9,14 +9,25 @@ class ListeTemplate extends Template {
         return "
             <form action=liste method=POST>
                 <link href=\"" . T::$CSS_BASE_DIR . "/my-wishlist.css\" rel=\"stylesheet\">
-                <div class=\"nouvelleListe\">Nouvelle liste à créer ! <br><br></div>
-                <p>
+                <div class=\"nouvelleListe\">Nouvelle liste à créer !</div>
+                <div class=\"form\" class \"desc\">
                 Titre :
-                <input type=text name=titre />
+                </div>
+                <div class=\"form\" class \"input\">
+                <input type=text name=titre placeholder=\"Ma wishlist\"/>
+                </div>
+                <div class=\"form\" class \"desc\">
                 Description :
-                <input type=text name=description />
+                </div>
+                <div class=\"form\" class \"input\">
+                <textarea type=text name=description placeholder=\"Une super wishlist\"></textarea>
+                </div>
+                <div class=\"form\" class \"desc\">
                 Date d'expiration :
-                <input type=date name=expiration /> </p>
+                </div>
+                <div class=\"form\" class \"input\">
+                <input type=date name=expiration />
+                </div>
                 <input type=submit value=OK>
             </form>
         ";
