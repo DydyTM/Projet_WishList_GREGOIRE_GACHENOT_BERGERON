@@ -72,6 +72,8 @@ $app->post('/signup', function() {
 
     setcookie('user_connected', 'yes', 0, "/");
     setcookie('pseudo', $pseudo, 0, '/');
+
+    header("Refresh:0; url=/");
 })->name('creerCompte');
 
 $app->post('/logout', function() {
