@@ -23,19 +23,13 @@ namespace wishlist\models\pretty\liste {
     function pprint_small($l) {
         $format = "
         <div class=\"row\">
-            <div class=\"col-l col-md mb\" >
-                <a class=\"card border-left-primary shadow h-100 py-2 invisible-link\" href=\"/liste/" . $l['no'] . "\">
-                    <div class=\"card-body\">
-                        <div class=\"row no-gutters align-items-center\">
-                            <div class=\"col mr-2\">
-                                <div class=\"text-xm font-weight-bold text-primary text-uppercase mb-1\">Liste #" . $l['no'] . ": " . $l['titre'] . "</div>
-                                <div class=\"text-s text-secondary mb-2\">" . $l['description'] . "</div>
-                                <div class=\"text-xs mb-3 text-uppercase\">Expire: " . $l['expiration'] . "</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <a class=\"invisible-link\" href=\"/liste/" . $l['no'] . "\">
+                <div class=\"col mr-2\">
+                    <div>Liste #" . $l['no'] . ": " . $l['titre'] . "</div>
+                    <div>" . $l['description'] . "</div>
+                    <div>Expire: " . $l['expiration'] . "</div>
+                </div>
+            </a>
         </div>";
 
         return $format; 
