@@ -12,3 +12,7 @@ a .invisible-link:any-link {
     text-decoration: none;
     cursor: move;
 }
+
+.imageObjet {
+    margin-right: 1.5rem;
+}
