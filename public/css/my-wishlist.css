@@ -1,27 +1,24 @@
-a .invisible-link:hover {
-    text-decoration: none;
-    cursor: move;
-}
-
-a .invisible-link:visited {
-    text-decoration: none;
-    cursor: move;
-}
-
-a .invisible-link:any-link {
-    text-decoration: none;
-    cursor: move;
-}
-
 .imageObjet {
     margin-right: 1.5rem;
 }
 
-.fooNom {
-    margin-top: 0.12rem;
-    margin-bottom: 1rem;
+footer {
+    position: absolute;
+    bottom: 0;
+    padding-top: 2rem;
+    height: 2rem;
 }
 
 .nouvelleListe {
     font-weight: bold;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    height: 3rem;
+}
+
+#content {
+    margin-top: 3rem;
 }
