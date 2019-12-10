@@ -6,6 +6,8 @@ namespace wishlist\controllers;
 use wishlist\views\VueItem as VueItem;
 use wishlist\views\VueListe as VueListe;
 use wishlist\models\Liste as Liste;
+use wishlist\views\VueIndex as VI;
+use wishlist\templates\ListeTemplate as LT;
 
 class ControllerList
 {
@@ -23,7 +25,7 @@ class ControllerList
 
     public function creeListe()
     {
-        echo "Créer une liste";
+        VI::render_with(LT::generateNew());
     }
 
     public function infosListe($no)
