@@ -11,6 +11,10 @@ class ControllerUser {
         VueConnexion::render_with(ProfilTemplate::generateLogin());
     }
 
+    public function inscriptionUser() {
+        VueConnexion::render_with(ProfilTemplate::generateSignup());
+    }
+
 
 }
 

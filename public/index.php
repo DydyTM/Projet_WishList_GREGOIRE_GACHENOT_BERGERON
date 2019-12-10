@@ -55,7 +55,7 @@ $app->post('/liste/:id/infos', function ($no) {
 // 17 : creer un compte
 $app->get('/signup', function() {
     $createAccountForm = new ControllerUser();
-    $createAccountForm->connexionUser();
+    $createAccountForm->inscriptionUser();
 });
 $app->post('/signup', function() {
     $pseudo = $_POST['pseudo'];
@@ -81,6 +81,31 @@ $app->post('/logout', function() {
     setcookie('pseudo', null, 1);
     unset($_COOKIE['user_connected']);
     setcookie('user_connected', null, 1);
+});
+
+$app->get('/login', function() {
+   $connectAccountForm = new ControllerUser();
+   $connectAccountForm->connexionUser();
+});
+$app->post('/login', function() {
+    // Test User existe et mot de passe correct
+    // Rajout cookies pour la connexion
+    // Redirection vers la homepage
+    $pseudo = $_POST['pseudo'];
+    $MDP = $_POST['pass'];
+    $u = Utilisateur::where('pseudo', '=', $pseudo)->get();
+    if($u->count() != 0) {
+        if($u['pass'] = $MDP) {
+            setcookie('user_connected', 'yes', 0, "/");
+            setcookie('pseudo', $pseudo, 0, '/');
+            header("Refresh:0; url=/");
+        } else {
+            //AJOUT ALERT MDP NON CONNU DANS LA BDD
+            header("Refresh:0; url=/login");
+        }
+    } else {
+        header("Refresh:0; url=/login");
+    }
 });
 
 // 20 : Rendre une liste publique
