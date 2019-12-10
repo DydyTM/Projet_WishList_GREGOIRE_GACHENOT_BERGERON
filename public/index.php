@@ -25,7 +25,7 @@ $app->get('/items/:id_item', function ($id_item) {
 })->name('afficheItemListe');
 
 // 6 : Créer une liste
-$app->post('/liste/nouveau', function () {
+$app->post('/nouveau/liste', function () {
     $nouvListe = new ControllerList();
     $nouvListe->creeListe();
 })->name('creeListe');
