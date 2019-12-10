@@ -1,3 +1,14 @@
-.flecheDroite {
-    cursor: pointer;
+a .invisible-link:hover {
+    text-decoration: none;
+    cursor: move;
+}
+
+a .invisible-link:visited {
+    text-decoration: none;
+    cursor: move;
+}
+
+a .invisible-link:any-link {
+    text-decoration: none;
+    cursor: move;
 }

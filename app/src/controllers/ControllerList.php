@@ -42,7 +42,7 @@ class ControllerList
 
     public function afficheToutesLesListes()
     {
-        $lists = Liste::all();
+        $lists = Liste::orderBy('expiration')->get();
 
         $view = new VueParticipant($lists->toArray());
         return $view->to_string(1);

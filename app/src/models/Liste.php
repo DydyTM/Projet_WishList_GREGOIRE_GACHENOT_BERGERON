@@ -23,20 +23,18 @@ namespace wishlist\models\pretty\liste {
     function pprint_small($l) {
         $format = "
         <div class=\"row\">
-            <div class=\"col-l col-md mb\">
-                <div class=\"card border-left-primary shadow h-100 py-2\">
+            <div class=\"col-l col-md mb\" >
+                <a class=\"card border-left-primary shadow h-100 py-2 invisible-link\" href=\"/liste/" . $l['no'] . "\">
                     <div class=\"card-body\">
-                    <div class=\"row no-gutters align-items-center\">
-                        <div class=\"col mr-2\">
-                            <div class=\"text-m font-weight-bold text-primary text-uppercase mb-1\"><u>Liste #" . $l['no'] . ": " . $l['titre'] . "</u><br>" . $l['description'] . "</div>
-                        </div>
-                        <div class=\"col-auto\">
-                            <img class=\"flecheDroite\" src=\"https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c44e.png\" height=\"40\" width=\"40\" alt=\"\"
-                                onclick=\"window.location.href='/liste/" . $l['no'] . "'\">
+                        <div class=\"row no-gutters align-items-center\">
+                            <div class=\"col mr-2\">
+                                <div class=\"text-xm font-weight-bold text-primary text-uppercase mb-1\">Liste #" . $l['no'] . ": " . $l['titre'] . "</div>
+                                <div class=\"text-s text-secondary mb-2\">" . $l['description'] . "</div>
+                                <div class=\"text-xs mb-3 text-uppercase\">Expire: " . $l['expiration'] . "</div>
+                            </div>
                         </div>
                     </div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>";
 
