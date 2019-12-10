@@ -48,7 +48,7 @@ class IndexTemplate extends T {
                 <i class=\"fa fa-bars\"></i>
             </button>
 
-            <a class=\"sidebar-brand d-flex align-items-center justify-content-center\" href=\".\">
+            <a class=\"sidebar-brand d-flex align-items-center justify-content-center\" href=\"/\">
                 <div class=\"sidebar-brand-icon rotate-n-15\">
                     <img class=\"imageWishList\" src=\"https://www.premiersmoments.com/wp-content/uploads/2017/11/Logo-Cadeau-PM.png\" height=\"30\" width=\"30\"  alt=\"\">
                 </div>
