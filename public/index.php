@@ -61,6 +61,7 @@ $app->post('/signup', function() {
     $pseudo = $_POST['pseudo'];
     // Dylan   > A VOIR POUR HASHER LE MOT DE PASSE PARCE QU'EN CLAIR C'EST PAS OUF !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // Ghilain > Je suis d'accord.
+    // Antoine > Moi aussi.
     $pass = $_POST['pass'];
 
     // Ghilain > Faudra voir pour vérifier que l'utilisateur n'est pas déjà dans la BDD.
