@@ -23,7 +23,7 @@ class IndexTemplate extends T {
     </head>
     <body>
         <header class=\"page-top\">
-            <span>My wishlist</span>
+            <a href=/>My wishlist</a>
         </header>
         <div id=content>
             %s
