@@ -5,6 +5,7 @@ require_once __DIR__ . '/../app/vendor/autoload.php';
 use wishlist\controllers\ControllerList as ControllerList;
 use wishlist\controllers\ControllerItem as ControllerItem;
 use wishlist\views\VueIndex as VI;
+use wishlist\models\Liste as Liste;
 
 \wishlist\database\Connection::connect();
 
@@ -25,10 +26,25 @@ $app->get('/items/:id_item', function ($id_item) {
 })->name('afficheItemListe');
 
 // 6 : Créer une liste
-$app->post('/nouveau/liste', function () {
+$app->get('/nouveau/liste', function () {
     $nouvListe = new ControllerList();
     $nouvListe->creeListe();
 })->name('creeListe');
+
+$app->post('/nouveau/liste', function () {
+    $titre = $_POST['titre'];
+    $description = $_POST['description'];
+    $expiration = $_POST['expiration'];
+
+    $l = new Liste();
+    $l->titre = $titre;
+    $l->description = $description;
+    $l->user_id = null;
+    $l->expiration = $expiration;
+    $l->token = 'nosecure1';
+    $l->save();
+    // ajouts dans la BDD
+})->name('creeListePOST');
 
 // 7 : Modifier les infos générales d'une liste
 $app->post('/liste/:id/infos', function ($no) {
@@ -42,23 +58,18 @@ $app->post('/liste/:id/publique', function ($no) {
     $listePub->listePublique($no);
 })->name('listePublique');
 
-// 21 : Afficher les listes de souhaits publique
-$app->get('/liste/publique', function() {
-    $affListePub = new ControllerList();
-    $affListePub->afficheListePublique();
-})->name('afficheListePublique');
-
+// 29 : easter egg zrtYes : OK
 $app->get('/zrtYes', function() {
     echo '<img src="https://cdn.discordapp.com/emojis/571352374325673995.png?v=1" alt=":zrtYes:">';
 });
 
+// 30 : easter egg blob : OK
 $app->get('/blob', function() {
     echo  '<img width=512 src="https://raw.githubusercontent.com/Mesabloo/blob/master/assets/icon.png" alt=":blob:"><br>';
     echo '<a href="https://github.com/Mesabloo/blob">https://github.com/Mesabloo/blob</a>';
 });
 
-$lists = 'hello';
-// Afficher toutes les listes
+// 21 : Afficher les listes de souhaits publique : OK
 $app->get('/', function() {
     $affToutesListe = new ControllerList();
     $lists = $affToutesListe->afficheToutesLesListes();
