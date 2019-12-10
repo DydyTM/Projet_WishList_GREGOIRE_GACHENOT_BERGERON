@@ -3,9 +3,18 @@
 namespace wishlist\templates;
 
 use wishlist\templates\Template as T;
+use wishlist\views\VueProfil as VueProfil;
 
 class IndexTemplate extends T {
     public static function generate() {
+        $anyConnected = isset($_COOKIE['user_connected']);
+        if ($anyConnected) {
+            $profil = VueProfil::render();
+        } else {
+            $profil = "<a href='/login'>Se connecter</a> ou <a href='/signup'>s'inscrire</a>";
+        }
+
+
         return "
 <!DOCTYPE html>
 <html lang=\"fr\">
@@ -24,6 +33,10 @@ class IndexTemplate extends T {
     <body>
         <header class=\"page-top\">
             <a href=/>My wishlist</a>
+
+            <span class=profile>
+                $profil
+            </span>
         </header>
         <div id=content>
             %s
