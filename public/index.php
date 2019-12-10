@@ -7,6 +7,7 @@ use wishlist\controllers\ControllerItem as ControllerItem;
 use wishlist\controllers\ControllerUser as ControllerUser;
 use wishlist\views\VueIndex as VI;
 use wishlist\models\Liste as Liste;
+use wishlist\models\Utilisateur as Utilisateur;
 
 \wishlist\database\Connection::connect();
 
@@ -58,12 +59,13 @@ $app->get('/signup', function() {
 });
 $app->post('/signup', function() {
     $pseudo = $_POST['pseudo'];
-    // A VOIR POUR HASHER LE MOT DE PASSE PARCE QU'EN CLAIR C'EST PAS OUF !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // Dylan   > A VOIR POUR HASHER LE MOT DE PASSE PARCE QU'EN CLAIR C'EST PAS OUF !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // Ghilain > Je suis d'accord.
     $pass = $_POST['pass'];
 
     $l = new Utilisateur();
-    $l->pseudo($pseudo);
-    $l->pass($pass);
+    $l->pseudo = $pseudo;
+    $l->pass = $pass;
     $l->save();
 })->name('creerCompte');
 

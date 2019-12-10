@@ -8,7 +8,7 @@ use wishlist\templates\Template as Template;
 class ProfilTemplate extends Template {
     public static function generateLogin() {
         return "
-            <form action=login method=POST>
+            <form action=/signup method=POST>
                 <link href=\"" . T::$CSS_BASE_DIR . "/my-wishlist.css\" rel=\"stylesheet\">
                 <div class=\"pageLogin\">Page Login !</div>
                 <div class=\"form desc\">
@@ -21,7 +21,7 @@ class ProfilTemplate extends Template {
                     Mot de passe :
                 </div>
                 <div class=\"form input\">
-                    <input type=text name=pass placeholder=\"mot de passe\"/>
+                    <input type=password name=pass placeholder=\"mot de passe\"/>
                 </div>
                 <div class=\"form\">
                     <input type=submit value=OK>
