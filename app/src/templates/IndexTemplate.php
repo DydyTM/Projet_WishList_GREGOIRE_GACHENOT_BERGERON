@@ -47,6 +47,9 @@ class IndexTemplate extends T {
                  BERGERON Ghilain, GREGOIRE Dylan, GACHENOT Antoine</div>
         </footer>
     </body>
+
+    <script src=\"" . T::$JS_BASE_DIR . "/logout.js\"></script>
+    <script src=\"" . T::$JS_BASE_DIR . "/ajax.js\"></script>
 </html>
         ";
     }

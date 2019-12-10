@@ -74,6 +74,13 @@ $app->post('/signup', function() {
     setcookie('pseudo', $pseudo, 0, '/');
 })->name('creerCompte');
 
+$app->post('/logout', function() {
+    unset($_COOKIE['pseudo']);
+    setcookie('pseudo', null, 1);
+    unset($_COOKIE['user_connected']);
+    setcookie('user_connected', null, 1);
+});
+
 // 20 : Rendre une liste publique
 $app->post('/liste/:id/publique', function ($no) {
     $listePub = new ControllerList();
