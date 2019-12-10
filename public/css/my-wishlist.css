@@ -16,6 +16,7 @@ footer div {
 
 .nouvelleListe {
     font-weight: bold;
+    margin-bottom: 3rem;
 }
 
 header {
@@ -40,4 +41,13 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.form {
+    text-align: center;
+    padding-bottom: 0.75rem;
+}
+
+.input {
+    padding-bottom: 1.25rem;
 }
