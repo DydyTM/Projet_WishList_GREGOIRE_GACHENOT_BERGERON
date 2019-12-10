@@ -18,3 +18,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
 
+RewriteRule ^liste/(.+)/(.+)$ $1/$2 [R=301, L]
