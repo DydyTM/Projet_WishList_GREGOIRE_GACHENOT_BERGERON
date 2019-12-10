@@ -38,15 +38,10 @@ class IndexTemplate extends T {
     <div id=\"content-wrapper\" class=\"d-flex flex-column\">
 
         <!-- Main Content -->
-        <div id=\"content\">
+        <div>
 
         <!-- Topbar -->
         <nav class=\"navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow\">
-
-            <!-- Sidebar Toggle (Topbar) -->
-            <button id=\"sidebarToggleTop\" class=\"btn btn-link d-md-none rounded-circle mr-3\">
-                <i class=\"fa fa-bars\"></i>
-            </button>
 
             <a class=\"sidebar-brand d-flex align-items-center justify-content-center\" href=\"/\">
                 <div class=\"sidebar-brand-icon rotate-n-15\">
