@@ -4,6 +4,7 @@ require_once __DIR__ . '/../app/vendor/autoload.php';
 
 use wishlist\controllers\ControllerList as ControllerList;
 use wishlist\controllers\ControllerItem as ControllerItem;
+use wishlist\controllers\ControllerUser as ControllerUser;
 use wishlist\views\VueIndex as VI;
 use wishlist\models\Liste as Liste;
 
@@ -30,7 +31,6 @@ $app->get('/nouveau/liste', function () {
     $nouvListe = new ControllerList();
     $nouvListe->creeListe();
 })->name('creeListe');
-
 $app->post('/nouveau/liste', function () {
     $titre = $_POST['titre'];
     $description = $_POST['description'];
@@ -74,6 +74,22 @@ $app->get('/blob', function() {
     echo  '<img width=512 src="https://raw.githubusercontent.com/Mesabloo/blob/master/assets/icon.png" alt=":blob:"><br>';
     echo '<a href="https://github.com/Mesabloo/blob">https://github.com/Mesabloo/blob</a>';
 });
+
+// 17 : creer un compte
+$app->get('/signup', function() {
+   $createAccountForm = new ControllerUser();
+   $createAccountForm->connexionUser();
+});
+$app->post('/signup', function() {
+    $pseudo = $_POST['pseudo'];
+    // A VOIR POUR HASHER LE MOT DE PASSE PARCE QU'EN CLAIR C'EST PAS OUF !!!!!!!!!!!!!!!!!!!!!!!!!!
+    $pass = $_POST['pass'];
+
+    $l = new Utilisateur();
+    $l->pseudo($pseudo);
+    $l->pass($pass);
+    $l->save();
+})->name('creerCompte');
 
 $app->run();
 

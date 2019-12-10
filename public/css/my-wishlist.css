@@ -13,6 +13,7 @@ footer div {
 }
 
 .nouvelleListe {
+    text-align: center;
     font-weight: bold;
     margin-bottom: 3rem;
 }
@@ -48,4 +49,10 @@ body {
 
 .input {
     padding-bottom: 1.25rem;
+}
+
+.pageLogin {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 3rem;
 }
