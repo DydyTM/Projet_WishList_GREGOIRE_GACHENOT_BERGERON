@@ -13,7 +13,8 @@ $app = new \Slim\Slim();
 // 1 : Affiche une liste de souhaits
 $app->get('/liste/:no', function ($no) {
     $list = new ControllerList();
-    $list->afficheListe($no);
+    $items = $list->afficheListe($no);
+    VI::render_with($items);
 })->name('afficheListe');
 
 

@@ -16,8 +16,8 @@ class ControllerList
             echo "<p>No wishlist found with no '$no'</p>";
             return;
         }
-        $view = new VueParticipant($list->items());
-        $view->render(2);
+        $view = new VueParticipant($list->items()->toArray());
+        return $view->to_string(2);
     }
 
     public function creeListe()

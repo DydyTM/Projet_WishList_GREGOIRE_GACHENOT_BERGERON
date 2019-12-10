@@ -13,7 +13,7 @@ namespace wishlist\models {
     public $timestamps = false;
 
    function items() {
-        return $this->hasMany('wishlist\models\Item', 'liste_id', 'no');
+        return $this->hasMany('wishlist\models\Item', 'liste_id', 'no')->get();
     }
 
     }

@@ -1,0 +1,5 @@
+RewriteEngine on
+
+# réécriture pour slim
+
+RewriteRule ^liste/(.+)$ $1 [R=301, L]
