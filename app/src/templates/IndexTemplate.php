@@ -25,7 +25,7 @@ class IndexTemplate extends T {
         <meta name=\"description\" content=\"\">
         <meta name=\"author\" content=\"\">
 
-        <title>My wishlist</title>
+        <title>My Wishlist</title>
 
         <!-- Custom styles for this template-->
         <link href=\"" . T::$CSS_BASE_DIR . "/my-wishlist.css\" rel=\"stylesheet\">
@@ -43,7 +43,8 @@ class IndexTemplate extends T {
         </div>
         <footer class=\"page-bottom\">
             <hr>
-            <div>Copyright &copy; my wishlist 2019</div>
+            <div>Copyright &copy; My Wishlist 2019 <br>
+                 BERGERON Ghilain, GREGOIRE Dylan, GACHENOT Antoine</div>
         </footer>
     </body>
 </html>
