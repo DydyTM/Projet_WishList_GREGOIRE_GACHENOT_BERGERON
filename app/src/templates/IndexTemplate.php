@@ -29,7 +29,8 @@ class IndexTemplate extends T {
             %s
         </div>
         <footer class=\"page-bottom\">
-            Copyright &copy; my wishlist 2019
+            <hr>
+            <div>Copyright &copy; my wishlist 2019</div>
         </footer>
     </body>
 </html>
