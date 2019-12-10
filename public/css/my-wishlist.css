@@ -16,3 +16,8 @@ a .invisible-link:any-link {
 .imageObjet {
     margin-right: 1.5rem;
 }
+
+.fooNom {
+    margin-top: 0.12rem;
+    margin-bottom: 1rem;
+}

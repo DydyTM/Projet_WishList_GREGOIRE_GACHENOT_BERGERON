@@ -230,11 +230,11 @@ class IndexTemplate extends T {
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <footer class=\"sticky-footer\">
+        <footer>
         <div class=\"container my-auto\">
             <div class=\"copyright text-center my-auto\">
                 <span>Copyright &copy; My Wishlist 2019<br></span>
-                <span><br>BERGERON Ghilain, GRÉGOIRE Dylan, GACHENOT Antoine</span>
+                <div class=\"fooNom\">BERGERON Ghilain, GRÉGOIRE Dylan, GACHENOT Antoine</div>
             </div>
         </div>
         </footer>
