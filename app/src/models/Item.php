@@ -33,13 +33,9 @@ namespace wishlist\models\pretty\item {
                 <div class=\"card border-left-primary shadow h-100 py-2\">
                     <div class=\"card-body\">
                     <div class=\"row no-gutters align-items-center\">
-                        <img class=\"imageObjet\" src=\"/img/" . $img . "\" height='70' width='70'> 
+                        <img class=\"imageObjet\" src=\"/img/$img\" height='70' width='70'> 
                         <div class=\"col mr-2\">
-                            <div class=\"text-m font-weight-bold text-primary text-uppercase mb-1\"><u>Item #" . $i['id'] . ": " . $i['liste_id'] . ":  " . $i['nom'] ."</u><br>" . $i['descr'] . "<br> Tarif : ". $i['tarif']. " €" . "</div>
-                        </div>
-                        <div class=\"col-auto\">
-                            <!-- <img class=\"flecheDroite\" src=\"https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c44e.png\" height=\"40\" width=\"40\" alt=\"\"> -->
-                                <!-- onclick=\"window.location.href='/liste/" . $i['id'] . "'\"> -->
+                            <div class=\"text-m font-weight-bold text-primary text-uppercase mb-1\"><u>Item #" . $i['id'] . ":  " . $i['nom'] ."</u><br>" . $i['descr'] . "<br> Tarif : ". $i['tarif']. " €" . "</div>
                         </div>
                     </div>
                     </div>
