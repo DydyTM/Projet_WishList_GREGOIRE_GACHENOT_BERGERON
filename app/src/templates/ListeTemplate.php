@@ -9,7 +9,7 @@ class ListeTemplate extends Template {
         return "
             <form action=liste method=POST>
                 <link href=\"" . T::$CSS_BASE_DIR . "/my-wishlist.css\" rel=\"stylesheet\">
-                <div class=\"nouvelleListe form\">Nouvelle liste à créer !</div>
+                <div class=\"nouvelleListe\">Nouvelle liste à créer !</div>
                 <div class=\"form desc\">
                     Titre :
                 </div>
