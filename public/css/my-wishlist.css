@@ -21,3 +21,7 @@ a .invisible-link:any-link {
     margin-top: 0.12rem;
     margin-bottom: 1rem;
 }
+
+.nouvelleListe {
+    font-weight: bold;
+}

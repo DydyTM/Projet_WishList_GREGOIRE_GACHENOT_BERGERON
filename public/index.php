@@ -41,9 +41,8 @@ $app->post('/nouveau/liste', function () {
     $l->description = $description;
     $l->user_id = null;
     $l->expiration = $expiration;
-    $l->token = 'nosecure1';
+    $l->token = 'nosecure' . $l['$no'];
     $l->save();
-    // ajouts dans la BDD
 })->name('creeListePOST');
 
 // 7 : Modifier les infos générales d'une liste
@@ -58,6 +57,13 @@ $app->post('/liste/:id/publique', function ($no) {
     $listePub->listePublique($no);
 })->name('listePublique');
 
+// 21 : Afficher les listes de souhaits publique : OK
+$app->get('/', function() {
+    $affToutesListe = new ControllerList();
+    $lists = $affToutesListe->afficheToutesLesListes();
+    VI::render_with($lists);
+})->name('afficheToutesLesListes');
+
 // 29 : easter egg zrtYes : OK
 $app->get('/zrtYes', function() {
     echo '<img src="https://cdn.discordapp.com/emojis/571352374325673995.png?v=1" alt=":zrtYes:">';
@@ -68,13 +74,6 @@ $app->get('/blob', function() {
     echo  '<img width=512 src="https://raw.githubusercontent.com/Mesabloo/blob/master/assets/icon.png" alt=":blob:"><br>';
     echo '<a href="https://github.com/Mesabloo/blob">https://github.com/Mesabloo/blob</a>';
 });
-
-// 21 : Afficher les listes de souhaits publique : OK
-$app->get('/', function() {
-    $affToutesListe = new ControllerList();
-    $lists = $affToutesListe->afficheToutesLesListes();
-    VI::render_with($lists);
-})->name('afficheToutesLesListes');
 
 $app->run();
 
