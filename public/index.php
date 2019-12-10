@@ -63,10 +63,14 @@ $app->post('/signup', function() {
     // Ghilain > Je suis d'accord.
     $pass = $_POST['pass'];
 
+    // Ghilain > Faudra voir pour vérifier que l'utilisateur n'est pas déjà dans la BDD.
     $l = new Utilisateur();
     $l->pseudo = $pseudo;
     $l->pass = $pass;
     $l->save();
+
+    setcookie('user_connected', 'yes', 0, "/");
+    setcookie('pseudo', $pseudo, 0, '/');
 })->name('creerCompte');
 
 // 20 : Rendre une liste publique
