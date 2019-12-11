@@ -9,7 +9,7 @@ use wishlist\models\Item as Item;
 class ControllerItem
 {
 
-    public function afficheItemListe($no, $îd)
+    public function afficheItemListe($no, $id)
     {
         $item = Item::where('id', '=', $id)->where('liste_id', '=', $no)->first();
         if (!$item) {

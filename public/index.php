@@ -24,7 +24,7 @@ $app->get('/liste/:no', function ($no) {
 // 2 : Affiche un item d'une liste
 $app->get('/liste/:no/item/:id', function ($no, $id) {
     $itemListe = new ControllerItem();
-    $item = $itemListe->afficheItemListe($no, $îd);
+    $item = $itemListe->afficheItemListe($no, $id);
     VI::render_with($item);
 })->name('afficheItemListe');
 
