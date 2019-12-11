@@ -9,16 +9,15 @@ use wishlist\models\Item as Item;
 class ControllerItem
 {
 
-    public function afficheItemListe($îd_item)
+    public function afficheItemListe($no, $îd)
     {
-        $item = Item::where('id_item', '=', $id_item)->first();
+        $item = Item::where('id', '=', $id)->where('liste_id', '=', $no)->first();
         if (!$item) {
-            echo "<p>No item found with id '$id_item'</p>";
-            return;
+            return "<p>No item found with id '$id'</p>";
         }
 
         $view = new VueItem([$item]);
-        $view->render(3);
+        return $view->to_string(3);
     }
 }
 

@@ -22,9 +22,10 @@ $app->get('/liste/:no', function ($no) {
 
 
 // 2 : Affiche un item d'une liste
-$app->get('/items/:id_item', function ($id_item) {
+$app->get('/liste/:no/item/:id', function ($no, $id) {
     $itemListe = new ControllerItem();
-    $itemListe->afficheItemListe($id_item);
+    $item = $itemListe->afficheItemListe($no, $îd);
+    VI::render_with($item);
 })->name('afficheItemListe');
 
 // 6 : Créer une liste
