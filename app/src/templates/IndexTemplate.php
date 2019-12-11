@@ -7,14 +7,8 @@ use wishlist\views\VueProfil as VueProfil;
 
 class IndexTemplate extends T {
     public static function generate() {
-        $anyConnected = isset($_COOKIE['user_connected']);
-        if ($anyConnected) {
-            $profil = VueProfil::render();
-        } else {
-            $profil = "<a class=\"invisible-link\" href='/login'>Se connecter</a> ou <a class=\"invisible-link\" href='/signup'>s'inscrire</a>";
-        }
-
-
+        $profil = VueProfil::render();
+        
         return "
 <!DOCTYPE html>
 <html lang=\"fr\">
