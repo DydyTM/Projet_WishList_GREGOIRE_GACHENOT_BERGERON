@@ -35,6 +35,7 @@ class IndexTemplate extends T {
                 $profil
             </span>
         </header>
+        <div class=\"header-line\"></div>
         <div id=content>
             %s
         </div>
