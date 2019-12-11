@@ -1,0 +1,21 @@
+{
+  "name": "wishlist",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dydouche/Projet_WishList_GREGOIRE_GACHENOT_BERGERON.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dydouche/Projet_WishList_GREGOIRE_GACHENOT_BERGERON/issues"
+  },
+  "homepage": "https://github.com/Dydouche/Projet_WishList_GREGOIRE_GACHENOT_BERGERON#readme",
+  "dependencies": {
+    "argon2-browser": "^1.12.0"
+  }
+}

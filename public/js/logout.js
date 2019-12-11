@@ -1,6 +1,5 @@
 const logout = () => {
-    post('/logout', _ => {
-        alert('Vous êtes déconnecté')
+    post('/logout', "", _ => {
         window.location.href = "/";
     })
 }

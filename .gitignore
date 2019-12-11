@@ -2,3 +2,5 @@
 app/vendor/*
 *.dist
 *.lock
+package-lock.json
+public/node_modules/*

@@ -23,6 +23,8 @@ class IndexTemplate extends T {
 
         <!-- Custom styles for this template-->
         <link href=\"" . T::$CSS_BASE_DIR . "/my-wishlist.css\" rel=\"stylesheet\">
+
+        <script async src=\"" . T::$NODE_BASE_DIR . "/argon2-browser/lib/argon2.js\"></script>
     </head>
     <body>
         <header class=\"page-top\">

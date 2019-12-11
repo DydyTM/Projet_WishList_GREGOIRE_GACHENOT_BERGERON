@@ -8,7 +8,7 @@ use wishlist\templates\Template as Template;
 class ProfilTemplate extends Template {
     public static function generateLogin() {
         return "
-            <form action=/login method=POST>
+            <form action=/login method=POST id=\"login-form\">
                 <link href=\"" . T::$CSS_BASE_DIR . "/my-wishlist.css\" rel=\"stylesheet\">
                 <div class=\"pageLogin\">Page de connexion !</div>
                 <div class=\"form desc\">
@@ -27,12 +27,14 @@ class ProfilTemplate extends Template {
                     <input type=submit value=OK>
                 </div>
             </form>
+
+            <script src=\"" . T::$JS_BASE_DIR . "/profil.js\"></script>
         ";
     }
 
     public static function generateSignup() {
         return "
-            <form action=/signup method=POST>
+            <form method=POST id=\"signup-form\">
                 <link href=\"" . T::$CSS_BASE_DIR . "/my-wishlist.css\" rel=\"stylesheet\">
                 <div class=\"pageLogin\">Page d'inscription !</div>
                 <div class=\"form desc\">
@@ -52,6 +54,7 @@ class ProfilTemplate extends Template {
                 </div>
             </form>
         
+            <script src=\"" . T::$JS_BASE_DIR . "/profil.js\"></script>
         ";
     }
 
