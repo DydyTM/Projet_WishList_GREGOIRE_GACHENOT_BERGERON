@@ -11,7 +11,7 @@ class IndexTemplate extends T {
         if ($anyConnected) {
             $profil = VueProfil::render();
         } else {
-            $profil = "<a href='/login'>Se connecter</a> ou <a href='/signup'>s'inscrire</a>";
+            $profil = "<a class=\"invisible-link\" href='/login'>Se connecter</a> ou <a class=\"invisible-link\" href='/signup'>s'inscrire</a>";
         }
 
 
@@ -32,8 +32,9 @@ class IndexTemplate extends T {
     </head>
     <body>
         <header class=\"page-top\">
-            <a href=/>My wishlist</a>
-
+            <div class=\"title\">
+                <a class=\"invisible-link\" href=/>My wishlist</a>
+            </div>
             <span class=profile>
                 $profil
             </span>

@@ -22,7 +22,7 @@ namespace wishlist\models {
 namespace wishlist\models\pretty\liste {
     function pprint_small($l) {
         $format = "
-        <div class=\"row\">
+        <div class=\"row list\">
             <a class=\"invisible-link\" href=\"/liste/" . $l['no'] . "\">
                 <div class=\"col mr-2\">
                     <div>Liste #" . $l['no'] . ": " . $l['titre'] . "</div>

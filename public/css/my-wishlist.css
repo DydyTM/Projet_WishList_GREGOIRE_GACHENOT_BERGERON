@@ -2,6 +2,20 @@
     font-family:Arial;
 }
 
+.title {
+    margin-top:0.75rem;
+    margin-left:0.75rem;
+}
+
+a.invisible-link {
+    text-decoration:none;
+    color:black;
+}
+
+.list {
+    padding-bottom:1.5rem;
+}
+
 .imageObjet {
     margin-right: 1.5rem;
 }
