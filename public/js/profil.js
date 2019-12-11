@@ -13,7 +13,7 @@ if (signup != undefined) {
         let pass = e.target[1].value
         let salt = randomSalt();
 
-        argon2.hash({pass, salt}).then(r => {
+        argon2.hash({pass, salt, type: argon2.ArgonType.Argon2i}).then(r => {
             data.append('pass', r.encoded)
             fetch('/signup', {body: data, method: 'POST'})
                 .then(response => {

@@ -90,10 +90,11 @@ $app->get('/login', function() {
 });
 $app->post('/login', function() {
     $pseudo = $_POST['pseudo'];
-    $MDP = $_POST['pass'];
+    $mdp = $_POST['pass'];
     $u = Utilisateur::where('pseudo', '=', $pseudo)->get();
     if($u->count() != 0) {
-        if($u['pass'] = $MDP) {
+        $u = $u->first();
+        if(password_verify($mdp, $u['pass'])) {
             setcookie('user_connected', 'yes', 0, "/");
             setcookie('pseudo', $pseudo, 0, '/');
             header("Refresh:0; url=/");
