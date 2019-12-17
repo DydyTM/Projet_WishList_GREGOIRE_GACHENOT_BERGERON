@@ -1,5 +1,5 @@
 * {
-    font-family:Arial;
+    font-family:fantasy;
 }
 
 .title {
@@ -35,6 +35,10 @@ footer {
 
 footer div {
     margin: 0.5rem;
+}
+
+hr {
+    border-color: #99CC00;
 }
 
 .nouvelleListe {
