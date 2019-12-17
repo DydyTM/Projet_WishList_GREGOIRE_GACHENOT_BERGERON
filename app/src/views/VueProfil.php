@@ -15,7 +15,7 @@ class VueProfil {
     private static function renderConnected() {
         $pseudo = $_COOKIE['pseudo'];
 
-        return "Bienvenue <a href='/profil'>$pseudo</a> !          <a href='javascript:logout()'>Se déconnecter</a>";
+        return "Bienvenue <a class=\"invisible-link\" href='/profil'>$pseudo</a> !          <a class=\"invisible-link\" href='javascript:logout()'>Se déconnecter</a>";
     }
 
     private static function renderDisconnected() {
