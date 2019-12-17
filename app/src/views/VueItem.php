@@ -2,7 +2,8 @@
 
 namespace wishlist\views;
 
-use wishlist\models\pretty\item as ItemPretty;
+use wishlist\models\pretty\PrettyItem as ItemPretty;
+use wishlist\models\pretty\PrettyListe as ListePretty;
 
 class VueItem {
     private $list;
@@ -12,12 +13,12 @@ class VueItem {
     }
 
     private function showItem() {
-        return ItemPretty\pprint($this->list[0]);
+        return ListePretty::pprint_small($this->list) . ItemPretty::pprint($this->list[0]);
     }
 
     private function showListItems() {
         $print_ = function($acc, $l) {
-            return $acc . ItemPretty\pprint($l);
+            return $acc . ItemPretty::pprint($l);
         };
 
         $html = array_reduce($this->list, $print_, '');

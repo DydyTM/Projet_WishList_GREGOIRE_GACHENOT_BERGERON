@@ -2,7 +2,7 @@
 
 namespace wishlist\views;
 
-use wishlist\models\pretty\liste as ListePretty;
+use wishlist\models\pretty\PrettyListe as ListePretty;
 
 class VueListe {
     private $list;
@@ -13,7 +13,7 @@ class VueListe {
 
     private function showListLists() {
         $print_ = function($acc, $l) {
-            return $acc . ListePretty\pprint_small($l);
+            return $acc . ListePretty::pprint_small($l);
         };
 
         $html = array_reduce($this->list, $print_, "");
