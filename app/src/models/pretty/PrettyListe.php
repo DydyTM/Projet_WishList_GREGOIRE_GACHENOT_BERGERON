@@ -4,7 +4,7 @@ namespace wishlist\models\pretty {
         public static function pprint_small($l) {
             $format = "
             <div class=\"row list\">
-                <a class=\"invisible-link\" href=\"/liste/" . $l['no'] . "\">
+                <a class=\"invisible-link\" href=\"/liste/" . $l['token_visu'] . "\">
                     <div class=\"col mr-2\">
                         <div>Liste #" . $l['no'] . ": " . $l['titre'] . "</div>
                         <div>" . $l['description'] . "</div>

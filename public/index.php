@@ -14,17 +14,17 @@ use wishlist\models\Utilisateur as Utilisateur;
 $app = new \Slim\Slim();
 
 // 1 : Affiche une liste de souhaits
-$app->get('/liste/:no', function ($no) {
+$app->get('/liste/:token', function ($token) {
     $list = new ControllerList();
-    $items = $list->afficheListe($no);
+    $items = $list->afficheListe($token);
     VI::render_with($items);
 })->name('afficheListe');
 
 
 // 2 : Affiche un item d'une liste
-$app->get('/liste/:no/item/:id', function ($no, $id) {
+$app->get('/liste/:token/item/:id', function ($token, $id) {
     $itemListe = new ControllerItem();
-    $item = $itemListe->afficheItemListe($no, $id);
+    $item = $itemListe->afficheItemListe($token, $id);
     VI::render_with($item);
 })->name('afficheItemListe');
 
