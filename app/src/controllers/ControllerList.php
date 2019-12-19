@@ -8,6 +8,7 @@ use wishlist\views\VueListe as VueListe;
 use wishlist\models\Liste as Liste;
 use wishlist\views\VueIndex as VI;
 use wishlist\templates\ListeTemplate as LT;
+use wishlist\templates\ItemTemplate as IT;
 
 class ControllerList
 {
@@ -49,6 +50,11 @@ class ControllerList
 
         $view = new VueListe($lists->toArray());
         return $view->to_string(1);
+    }
+
+    public function ajouterItemListe($token)
+    {
+        VI::render_with(IT::generateNew());
     }
 }
 

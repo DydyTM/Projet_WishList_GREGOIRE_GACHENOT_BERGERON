@@ -53,6 +53,12 @@ $app->post('/liste/:id/infos', function ($no) {
     $infListe->infosListe($no);
 })->name('infosListe');
 
+//8 : Ajout d'item dans une liste
+$app->post('/liste/:token/ajouterItem', function ($token) {
+   $ajoutItem = new ControllerList();
+   $ajoutItem->ajouterItem($token);
+})->name('ajouterItem');
+
 // 17 : creer un compte : OK
 $app->get('/signup', function() {
     $createAccountForm = new ControllerUser();
@@ -60,12 +66,8 @@ $app->get('/signup', function() {
 });
 $app->post('/signup', function() {
     $pseudo = $_POST['pseudo'];
-    // Dylan   > A VOIR POUR HASHER LE MOT DE PASSE PARCE QU'EN CLAIR C'EST PAS OUF !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // Ghilain > Je suis d'accord.
-    // Antoine > Moi aussi.
     $pass = $_POST['pass'];
 
-    // Ghilain > Faudra voir pour vérifier que l'utilisateur n'est pas déjà dans la BDD.
     $l = new Utilisateur();
     $l->pseudo = $pseudo;
     $l->pass = $pass;
