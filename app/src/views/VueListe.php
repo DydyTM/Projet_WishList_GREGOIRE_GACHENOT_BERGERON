@@ -20,7 +20,7 @@ class VueListe {
         return $html;
     }
 
-        public function render($mode) {
+    public function render($mode) {
         switch ($mode) {
             case 1:
                 echo $this->showListLists();

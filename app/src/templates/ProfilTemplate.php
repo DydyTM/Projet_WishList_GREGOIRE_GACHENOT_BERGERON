@@ -4,6 +4,7 @@ namespace wishlist\templates;
 
 use wishlist\templates\Template as T;
 use wishlist\templates\Template as Template;
+use wishlist\views\VueListe as VueListe;
 
 class ProfilTemplate extends Template {
     public static function generateLogin() {
@@ -58,10 +59,12 @@ class ProfilTemplate extends Template {
         ";
     }
 
-    public static function profile() {
+    public static function profile($lists) {
         $pseudo = $_COOKIE['pseudo'];
-        return "Page de profil de " . $pseudo . " <a href='/profil'></a> !<br>
-            <form action='/nouveau/liste' method='GET'><input type=submit value='Créer une nouvelle liste'/></form>";
+        $vl = new VueListe($lists);
+        return "Page de profil de <a href='/profil'>$pseudo</a> !<br>
+            <form action='/nouveau/liste' method='GET'><input type=submit value='Créer une nouvelle liste'/></form>"
+            . $vl->to_string(1);
     }
 }
 
