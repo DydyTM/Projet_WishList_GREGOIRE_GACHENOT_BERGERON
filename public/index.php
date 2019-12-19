@@ -124,8 +124,10 @@ $app->post('/login', function() {
 });
 
 $app->get('/profil', function() {
-   $affProfil = new ControllerUser();
-   $affProfil->pageProfil();
+    if (isset($_COOKIE['user_connected'])) {
+        $affProfil = new ControllerUser();
+        $affProfil->pageProfil($_COOKIE['pseudo']);
+    }
 });
 
 // 20 : Rendre une liste publique
