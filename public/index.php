@@ -38,13 +38,27 @@ $app->post('/nouveau/liste', function () {
     $description = $_POST['description'];
     $expiration = $_POST['expiration'];
 
+    $generateToken = function($length = 10) {
+        return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+    };
+
     $l = new Liste();
     $l->titre = $titre;
     $l->description = $description;
     $l->user_id = null;
     $l->expiration = $expiration;
-    $l->token = 'nosecure' . $l['$no'];
+    $liste = 1;
+    while ($liste) {
+        $l->token_visu = $generateToken(25);
+        $liste = Liste::where('token_visu', '=', $l->token_visu)->first();
+    }
+    $liste = 1;
+    while ($liste) {
+        $l->token_modif = $generateToken(25);
+        $liste = Liste::where('token_modif', '=', $l->token_modif)->first();
+    }
     $l->save();
+    header('Refresh:0; url=/');
 })->name('creeListePOST');
 
 // 7 : Modifier les infos générales d'une liste
