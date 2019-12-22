@@ -1,9 +1,11 @@
 {
   "name": "wishlist",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple wishlist website",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "yes | rm -r node_modules && rm package-lock.json",
+    "build": "npm install && cp -r node_modules ../public",
+    "start": "npm run build && npm run clean"
   },
   "repository": {
     "type": "git",
