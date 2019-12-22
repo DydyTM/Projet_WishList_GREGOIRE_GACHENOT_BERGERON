@@ -16,22 +16,17 @@ if (signup != undefined) {
         let salt = randomSalt();
 
         argon2.hash({pass, salt, type: argon2.ArgonType.Argon2i})
-            .then(r => {
-                data.append('pass', r.encoded)
-                fetch('/signup', {body: data, method: 'POST'})
-                    .then(response => {
-                        if (!response.ok) {
-                            response.text()
-                                .then(err => {
-                                    document.open()
-                                    document.write(err)
-                                    document.close()
-                                })
-                        } else {
-                            alert("Successfully registered!")
-                            // TODO: add a HTML dialog box
-                        }
-                    })
+            .then(r => data.append('pass', r.encoded))
+            .then(_ => fetch('/signup', {body: data, method: 'POST'}))
+            .then(response => {
+                if (!response.ok) {
+                    alert("Unable to register")
+                    // TODO: add a HTML dialog box
+                } else {
+                    alert("Successfully registered!")
+                    // TODO: add a HTML dialog box
+                    window.location.href = '/'
+                }
             })
     })
 }
@@ -45,28 +40,20 @@ if (login != undefined) {
         data.append('pseudo', e.target[0].value)
 
         fetch('/login', {body: data, method: 'POST'})
-            .then(response => {
-                if (!response.ok) {
-                    alert("Username or password incorrect!")
-                    // TODO: add a HTML dialog box
-                } else {
-                    Promise.resolve(response.json())
-                        .then(json => {
-                            console.info(json)
-                            argon2.verify({pass: e.target[1].value, encoded: json.pass, type: argon2.ArgonType.Argon2i})
-                                .then(() => {
-                                    alert("Successfully connected!")
-                                    data.append('checked', true)
-                                    fetch('/login', {body: data, method: 'POST'})
-                                    window.location.href = '/'
-                                })
-                                .catch(_ => {
-                                    alert("Username or password incorrect!")
-                                    // TODO: add a HTML dialog box
-                                })
-                        })
-                }
+            .then(response => response.ok ? response.json() : JSON.parse({}))
+            .then(json => {
+                if (!json)
+                    throw new Error()
+                return json.pass
             })
+            .then(pass => argon2.verify({pass: e.target[1].value, encoded: pass, type: argon2.ArgonType.Argon2i}))
+            .then(_ => data.append('checked', 1))
+            .then(_ => fetch('/login', {body: data, method: 'POST'}))
+            .then(_ => {
+                alert("Successfully connected!")
+                window.location.href = '/'
+            })
+            .catch(_ => alert("Username or password incorrect!") /* TODO: add a HTML dalog box */)
     })
 }
 
