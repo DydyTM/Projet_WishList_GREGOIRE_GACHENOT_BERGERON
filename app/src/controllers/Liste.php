@@ -12,8 +12,7 @@ class Liste {
     // 1 : Affiche une liste de souhaits
     public function afficherItems($tk) {
         $l     = MListe::where('token_visu', '=', $tk)->first();
-        $tk    = $l['token_visu'];
-        $l->items()->each(function ($i) use ($tk) { (new v\ItemLarge($i, $tk))->afficher(); });
+        (new v\ItemsLarge($tk, $l->items()->all()))->afficher();
     }
 
     // 6 : Créer une liste
