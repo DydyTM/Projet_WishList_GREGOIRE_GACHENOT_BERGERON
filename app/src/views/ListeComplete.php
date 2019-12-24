@@ -2,6 +2,8 @@
 
 namespace wishlist\views;
 
+use wishlist\Chemins;
+
 class ListeComplete {
     private $liste;
     private $items;
@@ -20,6 +22,7 @@ class ListeComplete {
         $tk     = $this->liste['token_visu'];
         $items  = $this->items;
         $pseudo = $this->proprio['pseudo'];
+        $JS     = Chemins::$JS;
 
         include __DIR__ . '/Header.php';
 
@@ -27,6 +30,7 @@ class ListeComplete {
             <div class=row>
                 <h1>$name <h2 align=right>Par $pseudo</h2></h1>
                 <h3>$descr</h3>
+                <button onclick="javascript:partager('$tk')">Partager</button>
                 <h5 align=right>expire : $exp</h5>
                 <hr>
                 <h3><u>Items : </u></h3><br>
@@ -34,6 +38,10 @@ class ListeComplete {
         end;
 
         (new ItemsLarge($tk, $items))->afficher();
+
+        echo <<< end
+            <script src="$JS/liste.js"></script>
+        end;
 
         include __DIR__ . '/Footer.php';
     }

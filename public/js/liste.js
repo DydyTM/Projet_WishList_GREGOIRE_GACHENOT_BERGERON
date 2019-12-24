@@ -34,3 +34,11 @@ if (nouvelleListe != undefined) {
         }).catch(e => alert(e) /* TODO: add a HTML dialog */)
     })
 }
+
+function partager(tk) {
+    let port = ""
+    if ((port = window.location.port) !== 80)
+        port = `:${port}`
+    const host = window.location.hostname
+    alert(`Voici le lien de partage de votre liste : ${host}${port}/liste/${tk}`)
+}

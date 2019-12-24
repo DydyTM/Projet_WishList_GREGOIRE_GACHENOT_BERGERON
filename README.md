@@ -57,10 +57,9 @@
 - [ ] 13 Supprimer une image d'un item
     - Le créateur d'une liste peut supprimer l'image de ses items
     - Dans le cas d'une image locale, le fichier de l'image n'est pas supprimé
-- [ ] 14 Partager une liste
-    - Une fois la liste entièrement saisie, le créateur peut la partager
-    - Le partage d'une liste génère une URL avec un token (jeton unique différent du token de
-    modification) destiné à être envoyé aux futurs participants
+- [x] 14 Partager une liste
+    - ~~Une fois la liste entièrement saisie, le créateur peut la partager~~
+    - ~~Le partage d'une liste génère une URL avec un token (jeton unique différent du token de modification) destiné à être envoyé aux futurs participants~~
 - [ ] 15 Consulter les réservations d'une de ses listes avant échéance
     - Le créateur d'une liste partagée peut consulter les  réservations effectuées sur sa liste
     - Seul l'état réservé ou non s'affiche avant la date d'échéance
