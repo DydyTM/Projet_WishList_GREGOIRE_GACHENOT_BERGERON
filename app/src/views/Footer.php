@@ -16,6 +16,7 @@ echo <<< footer
 
     <script async src="$NODE/argon2-browser/lib/argon2.js"></script>
     <script async src="$JS/ajax.js"></script>
+    <script async src="$JS/utils.js"></script>
 </html>
 footer;
 

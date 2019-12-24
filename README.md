@@ -31,7 +31,7 @@
     - Un utilisateur non authentifié peut créer une nouvelle liste de souhaits
     - ~~Un formulaire lui permet de saisir les informations générales de la liste~~
     - ~~les informations sont : titre, description et date d'expiration~~
-    - Les balises HTML sont interdites dans ces champs
+    - ~~Les balises HTML sont interdites dans ces champs~~
     - ~~Lors de sa création un token est créé pour accéder à cette liste en modification~~
 
 #### Créateur :
