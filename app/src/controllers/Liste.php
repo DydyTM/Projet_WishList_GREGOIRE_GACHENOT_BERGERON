@@ -11,8 +11,9 @@ use Slim\Http\Response;
 class Liste {
     // 1 : Affiche une liste de souhaits
     public function afficherItems($tk) {
-        $l     = MListe::where('token_visu', '=', $tk)->first();
-        (new v\ItemsLarge($tk, $l->items()->all()))->afficher();
+        $l    = MListe::where('token_visu', '=', $tk)->first();
+        $prop = Utilisateur::where('user_id', '=', $l['user_id'])->select('user_id')->first() || ['pseudo' => 'un inconnu'];
+        (new v\ListeComplete($l, $l->items()->all(), $prop))->afficher();
     }
 
     // 6 : Créer une liste

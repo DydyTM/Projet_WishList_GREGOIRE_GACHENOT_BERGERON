@@ -15,9 +15,7 @@ class ItemsLarge {
     }
 
     public function afficher() {
-        include __DIR__ . '/Header.php';
         array_map(function ($id) { (new ItemLarge($id, $this->token))->afficher(); }, $this->items);
-        include __DIR__ . '/Footer.php';
     }
 }
 
