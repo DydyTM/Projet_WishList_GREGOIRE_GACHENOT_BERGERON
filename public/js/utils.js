@@ -1,6 +1,10 @@
 'use strict';
 
-function isHTML(str) {
-    const doc = new DOMParser().parseFromString(str, "text/html");
-    return Array.from(doc.body.childNodes).some(node => node.nodeType === 1);
+function escapeHTMLEncode(str) {
+    const div = document.createElement('div')
+    const text = document.createTextNode(str)
+    div.appendChild(text)
+    const innerHTML = div.innerHTML
+    div.remove()
+    return innerHTML
 }
