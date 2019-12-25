@@ -3,7 +3,7 @@
 const nouvelleListe = document.querySelector('#newlist-form')
 if (nouvelleListe != undefined) {
     nouvelleListe.addEventListener('submit', e => {
-        e.preventDefault();
+        e.preventDefault()
 
         const titre = e.target[0].value
         const description = e.target[1].value
@@ -31,4 +31,38 @@ function partager(tk) {
         port = `:${port}`
     const host = window.location.hostname
     alert(`Voici le lien de partage de votre liste : ${host}${port}/liste/${tk}`)
+}
+
+const nouveauItem = document.querySelector('#newitem-form')
+if (nouveauItem != undefined) {
+    nouveauItem.addEventListener('submit', e => {
+        e.preventDefault()
+
+        const titre = e.target[0].value
+        const description = e.target[1].value
+        const prix = e.target[2].value
+
+        const tk = e.target.attributes[2].value
+
+        const data = new FormData()
+
+        data.append('titre', escapeHTMLEncode(titre))
+        data.append('description', escapeHTMLEncode(description))
+        data.append('prixItem', prix)
+
+        const url = `/liste/${tk}/ajouterItem`
+
+        fetch(url, {body: data, method: 'POST'})
+            .then(r => {
+                if (!r.ok)
+                    throw new Error()
+            }).then(_ => {
+                alert('Nouvel item créé')
+                window.location.href = url
+            }).catch(_ => alert(`Could not post to ${url}`))
+    })
+}
+
+function ajouterItem(tk) {
+    window.location.href = `/liste/${tk}/ajouterItem`
 }

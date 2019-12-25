@@ -52,6 +52,15 @@ class Liste {
     public function nouvelleListe() {
         (new v\ListeNouveau())->afficher();
     }
+
+    public function afficherAjoutItem($tk) {
+        $l = MListe::where('token_modif', '=', $tk)->first();
+        if (!$l) {
+            $app = Slim::getInstance();
+            $app->response = new Response('', 404, []);
+        } else
+            (new v\ItemNouveau($tk))->afficher();
+    }
 }
 
 ?>

@@ -1,11 +1,22 @@
 <?php
 
 namespace wishlist\views;
+use wishlist\Chemins;
 
 class ItemNouveau {
+    private $token;
+
+    public function __construct($tk) {
+        $this->token = $tk;
+    }
+
     public function afficher() {
+        $token = $this->token;
+        $JS    = Chemins::$JS;
+
+        include __DIR__ . '/Header.php';
         echo <<< end
-            <form action=item method=POST>
+            <form method=POST id="newitem-form" token="$token">
                 <div class="nouvelItem">Nouvel item à créer !</div>
                 <div class="form desc">
                     Nom :
@@ -29,7 +40,10 @@ class ItemNouveau {
                     <input type=submit value="Ajouter">
                 </div>
             </form>
+
+            <script src="$JS/liste.js"></script>
         end;
+        include __DIR__ . '/Footer.php';
     }
 }
 

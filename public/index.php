@@ -42,7 +42,7 @@ $app->get('/liste/:token/infos', function ($token) {
     // TODO
 })->name('modificationInfosListe');
 $app->get('/liste/:token/ajouterItem', function ($token) {
-    // TODO
+    (new cntrls\Liste())->afficherAjoutItem($token);
 })->name('ajoutItem');
 $app->get('/', function () {
     (new cntrls\Index())->page();
@@ -70,8 +70,8 @@ $app->post('/nouveau/liste', function () use ($app) {
 $app->post('/liste/:token/infos', function ($token) {
     // TODO
 });
-$app->post('/liste/:token/ajouterItem', function ($token) {
-    // TODO
+$app->post('/liste/:token/ajouterItem', function ($token) use ($app) {
+    (new cntrls\Item())->ajouterItem($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('prixItem'));
 });
 
 $app->run();

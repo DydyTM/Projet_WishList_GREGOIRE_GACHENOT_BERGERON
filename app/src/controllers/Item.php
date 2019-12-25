@@ -15,6 +15,18 @@ class Item {
             // TODO: throw 404 error
         }
     }
+
+    public function ajouterItem($token, $titre, $description, $prix) {
+        $liste_id = mdls\Liste::where('token_modif', '=', $token)->select('no')->first()['no'];
+        $i = new mdls\Item();
+        $i->nom = $titre;
+        $i->descr = $description;
+        $i->tarif = $prix;
+        $i->liste_id = $liste_id;
+        $i->url = '';
+        $i->img = '';
+        $i->save();
+    }
 }
 
 ?>
