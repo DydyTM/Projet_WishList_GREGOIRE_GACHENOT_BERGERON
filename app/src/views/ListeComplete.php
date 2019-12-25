@@ -20,6 +20,7 @@ class ListeComplete {
         $descr  = $this->liste['description'];
         $exp    = $this->liste['expiration'];
         $tk     = $this->liste['token_visu'];
+        $tk_mod = $this->liste['token_modif'];
         $items  = $this->items;
         $pseudo = $this->proprio['pseudo'];
         $JS     = Chemins::$JS;
@@ -31,6 +32,8 @@ class ListeComplete {
                 <h1>$name <h2 align=right>Par $pseudo</h2></h1>
                 <h3>$descr</h3>
                 <button onclick="javascript:partager('$tk')">Partager</button>
+                <button onclick="javascript:partager('$tk_mod')">Partager avec droit de modification</button>
+                <button onclick="javascript:ajouterItem('$tk_mod')">Ajouter un item</button>
                 <h5 align=right>expire : $exp</h5>
                 <hr>
                 <h3><u>Items : </u></h3><br>
