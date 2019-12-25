@@ -36,9 +36,9 @@
 
 #### Créateur :
 
-- [ ] 7 Modifier les informations générales d'une de ses listes
-    - Le créateur d'une liste peut modifier les informations générales de ses listes
-    - Pour modifier il doit connaître son URL de modification (avec token)
+- [x] 7 Modifier les informations générales d'une de ses listes
+    - ~~Le créateur d'une liste peut modifier les informations générales de ses listes~~
+    - ~~Pour modifier il doit connaître son URL de modification (avec token)~~
 - [x] 8 Ajouter des items
     - Le créateur d'une liste ~~peut ajouter des items à une de ses listes après l'avoir sélectionnée par son URL de modification (avec token)~~
     - ~~Un formulaire permet de saisir les informations de l'item~~

@@ -39,7 +39,7 @@ $app->get('/profil', function () {
     (new cntrls\Profil())->afficherProfil();
 })->name('affichageProfil');
 $app->get('/liste/:token/infos', function ($token) {
-    // TODO
+    (new cntrls\Liste())->afficherModifsListe($token);
 })->name('modificationInfosListe');
 $app->get('/liste/:token/ajouterItem', function ($token) {
     (new cntrls\Liste())->afficherAjoutItem($token);
@@ -67,8 +67,8 @@ $app->post('/logout', function () {
 $app->post('/nouveau/liste', function () use ($app) {
     (new cntrls\Liste())->créerListe($app->request->post('titre'), $app->request->post('description'), $app->request->post('expiration'));
 });
-$app->post('/liste/:token/infos', function ($token) {
-    // TODO
+$app->post('/liste/:token/infos', function ($token) use ($app) {
+    (new cntrls\Liste())->modifierListe($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('expiration'));
 });
 $app->post('/liste/:token/ajouterItem', function ($token) use ($app) {
     (new cntrls\Item())->ajouterItem($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('prixItem'));

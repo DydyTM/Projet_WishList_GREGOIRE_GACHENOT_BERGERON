@@ -61,6 +61,34 @@ class Liste {
         } else
             (new v\ItemNouveau($tk))->afficher();
     }
+
+    public function afficherModifsListe($tk) {
+        $l = MListe::where('token_modif', '=', $tk)->first();
+        $app = Slim::getInstance();
+
+        if (!$l) {
+            $app->response = new Response('', 404, []);
+            return;
+        }
+        if (!isset($_SESSION['pseudo'])) {
+            $app->response = new Response('', 403, []);
+            return;
+        }
+
+        $u = Utilisateur::where('pseudo', '=', $_SESSION['pseudo'])->first();
+
+        if ($l['user_id'] !== $u['user_id']) {
+            $app->response = new Response('', 403, []);
+            return;
+        }
+
+        (new v\ListeInfos($tk, $l))->afficher();
+    }
+
+    public function modifierListe($tk, $titre, $descr, $expir) {
+        $l = MListe::whereIn('token_modif', [$tk]);
+        $l->update(['titre' => $titre, 'description' => $descr, 'expiration' => $expir]);
+    }
 }
 
 ?>
