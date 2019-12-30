@@ -73,6 +73,9 @@ $app->post('/liste/:token/infos', function ($token) use ($app) {
 $app->post('/liste/:token/ajouterItem', function ($token) use ($app) {
     (new cntrls\Item())->ajouterItem($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('prixItem'));
 });
+$app->post('/liste/:token/items/:id', function ($token, $id) use ($app) {
+    (new cntrls\Item())->ajouterParticipant($token, $id, $app->request->post('participant'));
+});
 
 $app->run();
 
