@@ -5,7 +5,7 @@ namespace wishlist\views;
 use wishlist\Chemins;
 use Slim\Slim;
 
-class ItemsLarge {
+class ItemsShort {
     private $items;
     private $token;
 
@@ -15,7 +15,7 @@ class ItemsLarge {
     }
 
     public function afficher() {
-        array_map(function ($id) { (new ItemLarge($id, $this->token))->afficher(); }, $this->items);
+        array_map(function ($id) { (new ItemShort($id, $this->token))->afficher(); }, $this->items);
     }
 }
 

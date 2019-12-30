@@ -5,7 +5,7 @@ namespace wishlist\views;
 use wishlist\Chemins;
 use Slim\Slim;
 
-class ItemLarge {
+class ItemShort {
     private $item;
     private $token;
 

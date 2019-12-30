@@ -40,7 +40,7 @@ class ListeComplete {
             </div>
         end;
 
-        (new ItemsLarge($tk, $items))->afficher();
+        (new ItemsShort($tk, $items))->afficher();
 
         echo <<< end
             <script src="$JS/liste.js"></script>

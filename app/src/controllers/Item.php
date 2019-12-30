@@ -3,14 +3,14 @@
 namespace wishlist\controllers;
 
 use wishlist\models as mdls;
-use wishlist\views\ItemLarge;
+use wishlist\views\ItemShort;
 
 class Item {
     // 2 : Affiche un item d'une liste
     public function afficherItem($listeToken, $id) {
         $i = mdls\Liste::where('token_visu', '=', $listeToken)->first()->items()->where('id', '=', $id)->first();
         if ($i)
-            (new ItemLarge($i, $listeToken))->afficher();
+            (new ItemShort($i, $listeToken))->afficher();
         else {
             // TODO: throw 404 error
         }
