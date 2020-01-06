@@ -14,7 +14,7 @@ if(ajoutParticipant != undefined) {
                     throw new Error('Impossible to add participant to item: ' + r.status)
             }).then(_ => {
                 alert('Participant bien ajouté')
-                //window.location.href = url;
+                window.location.href = url;
             }).catch(e => alert(e))
     })
 }

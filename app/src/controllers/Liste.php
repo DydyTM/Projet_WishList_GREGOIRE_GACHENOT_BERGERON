@@ -89,6 +89,11 @@ class Liste {
         $l = MListe::whereIn('token_modif', [$tk]);
         $l->update(['titre' => $titre, 'description' => $descr, 'expiration' => $expir]);
     }
+
+    public function supprimerListe($tk) {
+        $l = MListe::whereIn('token', [$tk]);
+        $l->delete();
+    }
 }
 
 ?>

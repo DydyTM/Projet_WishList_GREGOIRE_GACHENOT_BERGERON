@@ -76,6 +76,9 @@ $app->post('/liste/:token/ajouterItem', function ($token) use ($app) {
 $app->post('/liste/:token/items/:id', function ($token, $id) use ($app) {
     (new cntrls\Item())->ajouterParticipant($token, $id, $app->request->post('participant'));
 });
+$app->post('/liste/:token', function ($token) use ($app) {
+    (new cntrls\Liste())->supprimerListe($token);
+});
 
 $app->run();
 
