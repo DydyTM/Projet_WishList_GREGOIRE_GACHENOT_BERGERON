@@ -22,14 +22,14 @@ class ListeComplete {
         $tk     = $this->liste['token_visu'];
         $tk_mod = $this->liste['token_modif'];
         $items  = $this->items;
-        $pseudo = $this->proprio['pseudo'];
+        $pseud  = $this->propriétaire['pseudo'];
         $JS     = Chemins::$JS;
 
         include __DIR__ . '/Header.php';
 
         echo <<< end
             <div class=row>
-                <h1>$name <h2 align=right>Par $pseudo</h2></h1>
+                <h1>$name <h2 align=right>Par $pseud</h2></h1>
                 <h3>$descr</h3>
                 <button onclick="javascript:partager('$tk', false)">Partager</button>
                 <button onclick="javascript:partager('$tk_mod', true)">Partager avec droit de modification</button>
