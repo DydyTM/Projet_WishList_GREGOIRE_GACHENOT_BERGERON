@@ -36,6 +36,14 @@ function partager(tk, modifs) {
     alert(`Voici le lien de partage de votre liste : ${host}${port}/liste/${tk}${modifs ? '/infos' : ''}`)
 }
 
+function modifier(tk) {
+    let port = ""
+    if ((port = window.location.port) !== 80)
+        port = `:${port}`
+    const host = window.location.hostname
+    window.location.href = `http://${host}${port}/liste/${tk}/infos`
+}
+
 const nouveauItem = document.querySelector('#newitem-form')
 if (nouveauItem != undefined) {
     nouveauItem.addEventListener('submit', e => {

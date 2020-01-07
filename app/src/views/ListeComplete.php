@@ -37,7 +37,7 @@ class ListeComplete {
                 if ($pseud === $_SESSION['pseudo']) {
                     echo <<< end
                     <button onclick="javascript:partager('$tk_mod', true)">Partager avec droit de modification</button> 
-                    <button onclick="javascript:modifier('$tk_mod')">Modifier</button>
+                    <button onclick="modifier('$tk_mod')">Modifier</button>
                     end;
                 }
                 
