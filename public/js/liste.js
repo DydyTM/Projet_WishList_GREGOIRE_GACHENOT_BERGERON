@@ -108,7 +108,7 @@ if (delListe != undefined) {
     delListe.addEventListener('submit', e => {
         e.preventDefault()
         const url = `/`
-        fetch(window.location.href, {method: 'POST'})
+        fetch(`${window.location.href}/del`, {method: 'POST'})
             .then(r => {
                 if (!r.ok)
                     throw new Error('Cannot delete list: ' + r.status)

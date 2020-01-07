@@ -103,7 +103,7 @@ class Liste {
             return;
         }
 
-        $l = MListe::whereIn('token_visu', [$tk]);
+        $l = MListe::whereIn('token_modif', [$tk]);
         $u = Utilisateur::where('pseudo', '=', $_SESSION['pseudo'])->select('user_id')->first();
         $p = $l->select('user_id')->first();
 
