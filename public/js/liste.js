@@ -9,8 +9,6 @@ if (nouvelleListe != undefined) {
         const description = e.target[1].value
         const date = e.target[2].value
 
-        console.log(e.target[3].checked)
-
         const data = new FormData();
 
         data.append('titre', escapeHTMLEncode(titre))
@@ -92,6 +90,7 @@ if (modifListe != undefined) {
         data.append('titre', escapeHTMLEncode(titre))
         data.append('description', escapeHTMLEncode(description))
         data.append('expiration', escapeHTMLEncode(date))
+        data.append('publique', e.target[3].checked)
         fetch(window.location.href, { body: data, method: 'POST' })
             .then(r => {
                 if (!r.ok)

@@ -85,8 +85,8 @@
 - [x] 21 Afficher les listes de souhaits publiques
     - ~~Tout utilisateur non enregistré peut consulter la liste des listes de souhaits publiques à partir de la page d'accueil~~
     - ~~Seuls les titres de liste apparaissent~~
-    - Les listes en cours de création (non validées par leur créateur) et les listes expirées n'apparaissent pas
-    - Les listes sont triées par date d'expiration croissante
+    - ~~Les listes en cours de création (non validées par leur créateur) et les listes expirées n'apparaissent pas~~
+    - ~~Les listes sont triées par date d'expiration croissante~~
     - ~~Un clic sur une liste redirige vers l'affichage du détail de cette liste~~
     - *En option, peuvent s'ajouter une recherche par auteur ou par intervalle de date.*
 - [ ] 22 Créer une cagnotte sur un item
