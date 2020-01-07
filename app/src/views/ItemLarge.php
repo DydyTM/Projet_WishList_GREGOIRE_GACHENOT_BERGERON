@@ -42,6 +42,7 @@ class ItemLarge {
         if(!isset($participant)) {
             echo <<< end
                     <form method=POST id="resitem-form" action="/liste/$token/items/$id">
+                        <br><br><br>
                         <div class="form partipItem">Souhaitez-vous participer ?</div>
                             <div class="form desc">
                                 Votre nom :

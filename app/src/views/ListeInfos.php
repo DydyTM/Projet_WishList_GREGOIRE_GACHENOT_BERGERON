@@ -14,11 +14,12 @@ class ListeInfos {
     }
 
     public function afficher() {
-        $titre = $this->liste['titre'];
-        $descr = $this->liste['description'];
-        $expir = $this->liste['expiration'];
-        $token = $this->token;
-        $JS    = Chemins::$JS;
+        $titre   = $this->liste['titre'];
+        $descr   = $this->liste['description'];
+        $expir   = $this->liste['expiration'];
+        $token   = $this->token;
+        $checked = $this->liste['publique'];
+        $JS      = Chemins::$JS;
 
         include __DIR__ . '/Header.php';
         echo <<< end
@@ -46,10 +47,10 @@ class ListeInfos {
                     Liste publique : 
                 </div>
                 <div class="form check">
-                    <input type=checkbox name=publique/>
+                    <input type=checkbox name=publique checked="$checked"/>
                 </div>
                 <div class="form">
-                    <input type=submit value="OK">
+                    <input type=submit value="OK">  
                 </div>
             </form>
 

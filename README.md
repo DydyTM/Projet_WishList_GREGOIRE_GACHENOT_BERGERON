@@ -17,9 +17,9 @@
     - L'état de la réservation est restreint pour le propriétaire de la liste (basé sur un cookie) : le nom du participant n’apparaît pas
     - ~~Un item appartenant à aucune liste validée (par son créateur) ne peut pas être affiché~~
     - ~~Pour afficher un item d'une liste, il faut connaître l'URL de sa liste contenant un token~~
-- [ ] 3 Réserver un item
-    - Dans la page de l'item, si l'item n'est pas réservé, un formulaire permet de saisir le nom du participant
-    - La validation du formulaire enregistre la participation
+- [x] 3 Réserver un item
+    - ~~Dans la page de l'item, si l'item n'est pas réservé, un formulaire permet de saisir le nom du participant~~
+    - ~~La validation du formulaire enregistre la participation~~
     - Le nom du participant peut être mémorisé dans une variable de session ou un cookie pour pré-remplir le champ afin de ne pas avoir à le retaper
 - [ ] 4 Ajouter un message avec sa réservation
     - Dans la page de l'item, si l'item n'est pas réservé, le formulaire de participation permet également de saisir un message destiné le créateur
@@ -79,16 +79,16 @@
     - Un utilisateur authentifié peut modifier son compte
     - Seul le login ne peut pas être modifié
     - Si il modifie son mot de passe, il doit alors à nouveau s'authentifier
-- [ ] 20 Rendre une liste publique
-    - Le créateur d'une liste peut la rendre publique
-    - Les listes publiques apparaissent dans la liste publique des listes de souhaits
-- [ ] 21 Afficher les listes de souhaits publiques
-    - Tout utilisateur non enregistré peut consulter la liste des listes de souhaits publiques à partir de la page d'accueil
-    - Seuls les titres de liste apparaissent
+- [x] 20 Rendre une liste publique
+    - ~~Le créateur d'une liste peut la rendre publique~~
+    - ~~Les listes publiques apparaissent dans la liste publique des listes de souhaits~~
+- [x] 21 Afficher les listes de souhaits publiques
+    - ~~Tout utilisateur non enregistré peut consulter la liste des listes de souhaits publiques à partir de la page d'accueil~~
+    - ~~Seuls les titres de liste apparaissent~~
     - Les listes en cours de création (non validées par leur créateur) et les listes expirées n'apparaissent pas
     - Les listes sont triées par date d'expiration croissante
-    - Un clic sur une liste redirige vers l'affichage du détail de cette liste
-    - En option, peuvent s'ajouter une recherche par auteur ou par intervalle de date.
+    - ~~Un clic sur une liste redirige vers l'affichage du détail de cette liste~~
+    - *En option, peuvent s'ajouter une recherche par auteur ou par intervalle de date.*
 - [ ] 22 Créer une cagnotte sur un item
     - Le créateur d'une liste peut ouvrir une cagnotte pour un de  ses items
 - [ ] 23 Participer à une cagnotte
