@@ -58,9 +58,7 @@ class ItemLarge {
 
                 <script src="$JS/item.js"></script>
             end;
-        }
-
-        else {
+        } else {
             echo <<< end
                     <div>Réservé par $participant</div>
                 </div>

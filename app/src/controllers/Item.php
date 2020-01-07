@@ -18,7 +18,7 @@ class Item {
 
     public function ajouterParticipant($listeToken, $id, $participant) {
         $l = mdls\Liste::where('token_visu', '=', $listeToken)->first();
-        $i = $l->items()->whereIn('id', [$id])->get();
+        $i = mdls\Item::where('liste_id', '=', $l['no'])->whereIn('id', [$id]);
         $i->update(['participant' => $participant]);
     }
 
