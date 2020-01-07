@@ -47,7 +47,12 @@ class ListeInfos {
                     Liste publique : 
                 </div>
                 <div class="form check">
-                    <input type=checkbox name=publique checked="$checked"/>
+                    <input type=checkbox name=publique
+        end;
+        if ($checked === 1)
+            echo " checked";
+        echo <<< end
+                    />
                 </div>
                 <div class="form">
                     <input type=submit value="OK">  
