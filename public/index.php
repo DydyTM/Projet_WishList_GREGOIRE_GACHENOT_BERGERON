@@ -65,7 +65,7 @@ $app->post('/logout', function () {
     (new cntrls\Profil())->déconnecter();
 });
 $app->post('/nouveau/liste', function () use ($app) {
-    (new cntrls\Liste())->créerListe($app->request->post('titre'), $app->request->post('description'), $app->request->post('expiration'));
+    (new cntrls\Liste())->créerListe($app->request->post('titre'), $app->request->post('description'), $app->request->post('expiration'), $app->request->post('publique'));
 });
 $app->post('/liste/:token/infos', function ($token) use ($app) {
     (new cntrls\Liste())->modifierListe($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('expiration'));
