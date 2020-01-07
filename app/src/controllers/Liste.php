@@ -6,6 +6,7 @@ use wishlist\views as v;
 use wishlist\models\Liste as MListe;
 use wishlist\models\Item as MItem;
 use wishlist\models\Utilisateur;
+use wishlist\models\Item;
 use Slim\Slim;
 use Slim\Http\Response;
 
@@ -93,6 +94,7 @@ class Liste {
 
     public function supprimerListe($tk) {
         $l = MListe::whereIn('token_visu', [$tk]);
+        Item::where('liste_id', '=', $l->first()["no"])->delete();
         $l->delete();
     }
 }
