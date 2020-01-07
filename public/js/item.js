@@ -18,3 +18,19 @@ if(ajoutParticipant != undefined) {
             }).catch(e => alert(e))
     })
 }
+
+const delItem = document.querySelector('#delitem-form')
+if(delItem != undefined) {
+    delItem.addEventListener('submit', e => {
+        e.preventDefault()
+        const url = `/`
+        fetch(`${window.location.href}/del`, {method: 'POST'})
+            .then(r => {
+                if (!r.ok)
+                    throw new Error('Cannot delete item: ' + r.status)
+            }). then(_ => {
+                alert('Item supprimé')
+                window.location.href = url
+            }).catch(e => alert(e))
+    })
+}

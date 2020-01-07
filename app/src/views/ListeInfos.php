@@ -31,7 +31,7 @@ class ListeInfos {
                 <div class="form input">
                     <input type=text name=titre placeholder="Ma wishlist" value="$titre"/>
                 </div>
-                <div class="form desc">
+                <div class="form desc">     
                     Description :
                 </div>
                 <div class="form input">

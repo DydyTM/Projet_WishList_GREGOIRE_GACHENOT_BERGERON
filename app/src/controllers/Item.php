@@ -2,8 +2,12 @@
 
 namespace wishlist\controllers;
 
+use Slim\Http\Response;
 use wishlist\models as mdls;
+use wishlist\models\Liste as MListe;
+use wishlist\models\Utilisateur;
 use wishlist\views\ItemLarge;
+use Slim\Slim;
 
 class Item {
     // 2 : Affiche un item d'une liste
@@ -32,6 +36,27 @@ class Item {
         $i->url = $url;
         $i->img = '';
         $i->save();
+    }
+
+    public function supprimerItem($token, $id) {
+
+        $app = Slim::getInstance();
+        if (!isset($_SESSION['pseudo'])) {
+            $app->response = new Response('', 403, []);
+            return;
+        }
+
+        $l = MListe::whereIn('token_modif', [$token]);
+        $u = Utilisateur::where('pseudo', '=', $_SESSION['pseudo'])->select('user_id')->first();
+        $p = $l->select('user_id')->first();
+
+        if($u['user_id'] !== $p['user_id']) {
+            $app->response = new Response('', 403, []);
+            return;
+        }
+
+        Item::whereIn('id', [$id])->delete();
+
     }
 }
 

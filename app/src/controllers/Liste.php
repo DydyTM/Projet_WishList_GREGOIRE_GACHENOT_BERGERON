@@ -107,9 +107,6 @@ class Liste {
         $u = Utilisateur::where('pseudo', '=', $_SESSION['pseudo'])->select('user_id')->first();
         $p = $l->select('user_id')->first();
 
-        var_dump($u);
-        var_dump($p);
-
         if($u['user_id'] !== $p['user_id']) {
             $app->response = new Response('', 403, []);
             return;

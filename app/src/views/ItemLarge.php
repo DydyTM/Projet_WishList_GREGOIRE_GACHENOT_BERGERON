@@ -31,19 +31,26 @@ class ItemLarge {
 
         include __DIR__ . '/Header.php';
         echo <<< end
-                <div class="row">
-                    <div>
-                        <img class="imageObjet" src="$IMG/$img" height='70' width='70'>
+                <div class="supprItem">
+                    <form method=POST id="delitem-form" action="/liste/$token/items/$id">
+                        <div class="form">
+                            <input type=submit value="Supprimer l'item">
+                        </div>
+                    </form>
+                    <div class="row">
                         <div>
-                            <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €
+                            <img class="imageObjet" src="$IMG/$img" height='70' width='70'>
+                            <div>
+                                <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €
         end;
         if($url) {
             echo <<< end
-            <br> URL : <a href = "$url" target = "_blank" > Lien vers Amazon </a >
+                                <br> URL : <a href = "$url" target = "_blank" > Lien vers Amazon </a >
             end;
         }
         echo <<< end
-                            </div >
+                                </div >
+                            </div>
                         </div>
                     </div>
         end;

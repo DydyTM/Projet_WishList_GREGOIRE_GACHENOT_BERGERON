@@ -79,6 +79,9 @@ $app->post('/liste/:token/items/:id', function ($token, $id) use ($app) {
 $app->post('/liste/:token/infos/del', function ($token) {
     (new cntrls\Liste())->supprimerListe($token);
 });
+$app->post('/liste/:token/items/:id/del', function ($token, $id) {
+    (new cntrls\Item())->supprimerItem($token, $id);
+});
 
 $app->run();
 
