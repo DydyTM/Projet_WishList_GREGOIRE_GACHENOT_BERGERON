@@ -17,6 +17,7 @@ class ListeInfos {
         $titre = $this->liste['titre'];
         $descr = $this->liste['description'];
         $expir = $this->liste['expiration'];
+        $token = $this->token;
         $JS    = Chemins::$JS;
 
         include __DIR__ . '/Header.php';
@@ -43,6 +44,13 @@ class ListeInfos {
                 </div>
                 <div class="form">
                     <input type=submit value="OK">
+                </div>
+            </form>
+
+            <button onclick="javascript:ajouterItem('$token')">Ajouter un item</button>
+            <form method=POST id="delliste-form" action="/liste/$token>
+                <div class="form">
+                    <input type=submit value="Supprimer la liste">
                 </div>
             </form>
 

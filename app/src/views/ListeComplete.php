@@ -28,17 +28,21 @@ class ListeComplete {
         include __DIR__ . '/Header.php';
 
         echo <<< end
-            <div class=row>
+            
                 <h1>$name <h2 align=right>Par $pseud</h2></h1>
                 <h3>$descr</h3>
                 <button onclick="javascript:partager('$tk', false)">Partager</button>
-                <button onclick="javascript:partager('$tk_mod', true)">Partager avec droit de modification</button>
-                <button onclick="javascript:ajouterItem('$tk_mod')">Ajouter un item</button>
-                <form method=POST id="delliste-form" action="/liste/$tk>
-                    <div class="form">
-                        <input type=submit value="Supprimer la liste">
-                    </div>
-                </form>
+                end;
+
+                if ($pseud === $_SESSION['pseudo']) {
+                    echo <<< end
+                    <button onclick="javascript:partager('$tk_mod', true)">Partager avec droit de modification</button> 
+                    <button onclick="javascript:modifier('$tk_mod')">Modifier</button>
+                    end;
+                }
+                
+
+        echo <<< end
                 <h5 align=right>expire : $exp</h5>
                 <hr>
                 <h3><u>Items : </u></h3><br>
