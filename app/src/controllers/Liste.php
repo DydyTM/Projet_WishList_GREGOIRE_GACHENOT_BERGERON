@@ -21,7 +21,7 @@ class Liste {
     }
 
     // 6 : Créer une liste
-    public function créerListe($titre, $description, $expire) {
+    public function créerListe($titre, $description, $expire, $public) {
         $app = Slim::getInstance();
         if (!isset($_SESSION['pseudo'])) {
             $app->response = new Response('', 403, []);
@@ -35,6 +35,7 @@ class Liste {
         $l->description = $description;
         $l->user_id = $u['user_id'];
         $l->expiration = $expire;
+        $l->publique = $public === 'true' ? 1 : 0;
         do {
             $l->token_visu = self::generateToken(25);
             $liste = MListe::where('token_visu', '=', $l->token_visu)->first();

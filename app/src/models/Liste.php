@@ -13,6 +13,7 @@ class Liste extends Model {
     protected $expiration  = 'expiration';
     protected $token_visu  = 'token_visu';
     protected $token_modif = 'token_modif';
+    protected $publique    = 'publique';
     public $timestamps     = false;
 
     function items() {

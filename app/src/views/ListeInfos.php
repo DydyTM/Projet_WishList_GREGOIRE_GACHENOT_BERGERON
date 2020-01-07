@@ -41,6 +41,12 @@ class ListeInfos {
                 <div class="form input">
                     <input type=date name=expiration value="$expir" />
                 </div>
+                <div class="form desc">
+                    Liste publique : 
+                </div>
+                <div class="form check">
+                    <input type=checkbox name=publique/>
+                </div>
                 <div class="form">
                     <input type=submit value="OK">
                 </div>
