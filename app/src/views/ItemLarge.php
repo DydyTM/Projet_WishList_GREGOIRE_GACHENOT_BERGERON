@@ -35,7 +35,15 @@ class ItemLarge {
                     <div>
                         <img class="imageObjet" src="$IMG/$img" height='70' width='70'>
                         <div>
-                            <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €<br>URL : <a href="$url" target="_blank">Lien vers Amazon</a></div>
+                            <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €
+        end;
+        if($url) {
+            echo <<< end
+            <br> URL : <a href = "$url" target = "_blank" > Lien vers Amazon </a >
+            end;
+        }
+        echo <<< end
+                            </div >
                         </div>
                     </div>
         end;
@@ -63,7 +71,6 @@ class ItemLarge {
         } else {
             echo <<< end
                     <div>Réservé par $participant</div>
-                    <div>Lien du produit : $url</div>
                 </div>
             end;
         }
