@@ -50,6 +50,7 @@ if (nouveauItem != undefined) {
         const titre = e.target[0].value
         const description = e.target[1].value
         const prix = e.target[2].value
+        const urlP = e.target[3].value
 
         const tk = e.target.attributes[2].value
 
@@ -58,6 +59,7 @@ if (nouveauItem != undefined) {
         data.append('titre', escapeHTMLEncode(titre))
         data.append('description', escapeHTMLEncode(description))
         data.append('prixItem', prix)
+        data.append('urlProduit', urlP)
 
         const url = `/liste/${tk}/ajouterItem`
 

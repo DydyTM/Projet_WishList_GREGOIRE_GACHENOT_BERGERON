@@ -20,6 +20,7 @@ class ItemShort {
         $nom   = $this->item['nom'];
         $descr = $this->item['descr'];
         $tarif = $this->item['tarif'];
+        $url   = $this->item['url'];
         $token = $this->token;
         $path  = Slim::getInstance()->urlFor('affichageItem', ['token' => $token, 'id' => $id]);
 

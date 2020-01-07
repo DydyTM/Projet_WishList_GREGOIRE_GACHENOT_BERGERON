@@ -22,6 +22,7 @@ class ItemLarge {
         $descr       = $this->item['descr'];
         $tarif       = $this->item['tarif'];
         $participant = $this->item['participant'];
+        $url         = $this->item['url'];
         $token       = $this->token;
         $path        = Slim::getInstance()->urlFor('affichageItem', ['token' => $token, 'id' => $id]);
 
@@ -34,7 +35,7 @@ class ItemLarge {
                     <div>
                         <img class="imageObjet" src="$IMG/$img" height='70' width='70'>
                         <div>
-                            <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €</div>
+                            <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €<br>URL : <a href="$url" target="_blank">Lien vers Amazon</a></div>
                         </div>
                     </div>
         end;
@@ -62,6 +63,7 @@ class ItemLarge {
         } else {
             echo <<< end
                     <div>Réservé par $participant</div>
+                    <div>Lien du produit : $url</div>
                 </div>
             end;
         }

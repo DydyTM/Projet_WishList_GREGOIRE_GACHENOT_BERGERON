@@ -34,7 +34,10 @@ class ItemNouveau {
                     Prix :
                 </div>
                 <div class="form input">
-                    <input type="number" name=prixItem min="0.00" step="0.01" />
+                    <input type="number" name=prixItem min="0.00" step="0.01"/>
+                </div>
+                <div class="form input">
+                    <input type=text name=urlProduit placeholder="URL du produit sur Amazon"/>
                 </div>
                 <div class="form">
                     <input type=submit value="Ajouter">
