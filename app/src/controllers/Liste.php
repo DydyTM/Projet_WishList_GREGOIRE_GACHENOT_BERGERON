@@ -93,7 +93,25 @@ class Liste {
     }
 
     public function supprimerListe($tk) {
+        
+        $app = Slim::getInstance();
+        if (!isset($_SESSION['pseudo'])) {
+            $app->response = new Response('', 403, []);
+            return;
+        }
+
         $l = MListe::whereIn('token_visu', [$tk]);
+        $u = Utilisateur::where('pseudo', '=', $_SESSION['pseudo'])->select('user_id')->first();
+        $p = $l->select('user_id')->first();
+
+        var_dump($u);
+        var_dump($p);
+
+        if($u['user_id'] !== $p['user_id']) {
+            $app->response = new Response('', 403, []);
+            return;
+        }
+
         Item::where('liste_id', '=', $l->first()["no"])->delete();
         $l->delete();
     }
