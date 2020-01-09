@@ -48,16 +48,15 @@ class Item {
             return;
         }
 
-        $l = MListe::whereIn('token_modif', [$token]);
+        $p = MListe::where('token_visu','=' , $token)->select('user_id')->first();
         $u = Utilisateur::where('pseudo', '=', $_SESSION['pseudo'])->select('user_id')->first();
-        $p = $l->select('user_id')->first();
 
         if($u['user_id'] !== $p['user_id']) {
             $app->response = new Response('', 403, []);
             return;
         }
 
-        Item::whereIn('id', [$id])->delete();
+        mdls\Item::where('id','=' , $id)->first()->delete();
 
     }
 }
