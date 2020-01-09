@@ -8,9 +8,11 @@ use wishlist\views\ItemLarge;
 class Item {
     // 2 : Affiche un item d'une liste
     public function afficherItem($listeToken, $id) {
-        $i = mdls\Liste::where('token_visu', '=', $listeToken)->first()->items()->where('id', '=', $id)->first();
+        $l = mdls\Liste::where('token_visu', '=', $listeToken)->first();
+        $i = $l->items()->where('id', '=', $id)->first();
         if ($i) {
-            (new ItemLarge($i, $listeToken))->afficher();
+            $prop = mdls\Utilisateur::where('user_id', '=', $l['user_id'])->first();
+            (new ItemLarge($i, $listeToken, $prop))->afficher();
         } else {
             // TODO: throw 404 error
         }
