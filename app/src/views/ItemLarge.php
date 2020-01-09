@@ -23,11 +23,8 @@ class ItemLarge {
         $descr       = $this->item['descr'];
         $tarif       = $this->item['tarif'];
         $participant = $this->item['participant'];
-<<<<<<< HEAD
         $pseud       = $this->propriétaire['pseudo'];
-=======
         $url         = $this->item['url'];
->>>>>>> 4cceccb91564c8eb713630d07bb2effaa501c99f
         $token       = $this->token;
         $path        = Slim::getInstance()->urlFor('affichageItem', ['token' => $token, 'id' => $id]);
 
