@@ -90,9 +90,9 @@ class Liste {
         (new v\ListeInfos($tk, $l))->afficher();
     }
 
-    public function modifierListe($tk, $titre, $descr, $expir) {
+    public function modifierListe($tk, $titre, $descr, $expir, $public) {
         $l = MListe::whereIn('token_modif', [$tk]);
-        $l->update(['titre' => $titre, 'description' => $descr, 'expiration' => $expir]);
+        $l->update(['titre' => $titre, 'description' => $descr, 'expiration' => $expir, 'publique' => $public === 'true' ? 1 : 0]);
     }
 
     public function supprimerListe($tk) {
@@ -106,9 +106,6 @@ class Liste {
         $l = MListe::whereIn('token_modif', [$tk]);
         $u = Utilisateur::where('pseudo', '=', $_SESSION['pseudo'])->select('user_id')->first();
         $p = $l->select('user_id')->first();
-
-        var_dump($u);
-        var_dump($p);
 
         if($u['user_id'] !== $p['user_id']) {
             $app->response = new Response('', 403, []);

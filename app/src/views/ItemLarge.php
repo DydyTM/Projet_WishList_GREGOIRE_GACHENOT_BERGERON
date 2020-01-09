@@ -23,7 +23,11 @@ class ItemLarge {
         $descr       = $this->item['descr'];
         $tarif       = $this->item['tarif'];
         $participant = $this->item['participant'];
+<<<<<<< HEAD
         $pseud       = $this->propriétaire['pseudo'];
+=======
+        $url         = $this->item['url'];
+>>>>>>> 4cceccb91564c8eb713630d07bb2effaa501c99f
         $token       = $this->token;
         $path        = Slim::getInstance()->urlFor('affichageItem', ['token' => $token, 'id' => $id]);
 
@@ -32,11 +36,26 @@ class ItemLarge {
 
         include __DIR__ . '/Header.php';
         echo <<< end
-                <div class="row">
-                    <div>
-                        <img class="imageObjet" src="$IMG/$img" height='70' width='70'>
+                <div class="supprItem">
+                    <form method=POST id="delitem-form" action="/liste/$token/items/$id">
+                        <div class="form">
+                            <input type=submit value="Supprimer l'item">
+                        </div>
+                    </form>
+                    <div class="row">
                         <div>
-                            <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €</div>
+                            <img class="imageObjet" src="$IMG/$img" height='70' width='70'>
+                            <div>
+                                <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €
+        end;
+        if($url) {
+            echo <<< end
+                                <br> URL : <a href = "$url" target = "_blank" > Lien vers Amazon </a >
+            end;
+        }
+        echo <<< end
+                                </div >
+                            </div>
                         </div>
                     </div>
         end;

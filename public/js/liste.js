@@ -9,8 +9,6 @@ if (nouvelleListe != undefined) {
         const description = e.target[1].value
         const date = e.target[2].value
 
-        console.log(e.target[3].checked)
-
         const data = new FormData();
 
         data.append('titre', escapeHTMLEncode(titre))
@@ -52,6 +50,7 @@ if (nouveauItem != undefined) {
         const titre = e.target[0].value
         const description = e.target[1].value
         const prix = e.target[2].value
+        const urlP = e.target[3].value
 
         const tk = e.target.attributes[2].value
 
@@ -60,6 +59,7 @@ if (nouveauItem != undefined) {
         data.append('titre', escapeHTMLEncode(titre))
         data.append('description', escapeHTMLEncode(description))
         data.append('prixItem', prix)
+        data.append('urlProduit', urlP)
 
         const url = `/liste/${tk}/ajouterItem`
 
@@ -92,6 +92,7 @@ if (modifListe != undefined) {
         data.append('titre', escapeHTMLEncode(titre))
         data.append('description', escapeHTMLEncode(description))
         data.append('expiration', escapeHTMLEncode(date))
+        data.append('publique', e.target[3].checked)
         fetch(window.location.href, { body: data, method: 'POST' })
             .then(r => {
                 if (!r.ok)

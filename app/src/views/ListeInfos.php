@@ -14,12 +14,12 @@ class ListeInfos {
     }
 
     public function afficher() {
-        $titre   = $this->liste['titre'];
-        $descr   = $this->liste['description'];
-        $expir   = $this->liste['expiration'];
-        $token   = $this->token;
-        $checked = $this->liste['publique'];
-        $JS      = Chemins::$JS;
+        $titre       = $this->liste['titre'];
+        $description = $this->liste['description'];
+        $expir       = $this->liste['expiration'];
+        $token       = $this->token;
+        $checked     = $this->liste['publique'];
+        $JS          = Chemins::$JS;
 
         include __DIR__ . '/Header.php';
         echo <<< end
@@ -31,7 +31,7 @@ class ListeInfos {
                 <div class="form input">
                     <input type=text name=titre placeholder="Ma wishlist" value="$titre"/>
                 </div>
-                <div class="form desc">
+                <div class="form desc">     
                     Description :
                 </div>
                 <div class="form input">

@@ -68,16 +68,19 @@ $app->post('/nouveau/liste', function () use ($app) {
     (new cntrls\Liste())->créerListe($app->request->post('titre'), $app->request->post('description'), $app->request->post('expiration'), $app->request->post('publique'));
 });
 $app->post('/liste/:token/infos', function ($token) use ($app) {
-    (new cntrls\Liste())->modifierListe($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('expiration'));
+    (new cntrls\Liste())->modifierListe($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('expiration'), $app->request->post('publique'));
 });
 $app->post('/liste/:token/ajouterItem', function ($token) use ($app) {
-    (new cntrls\Item())->ajouterItem($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('prixItem'));
+    (new cntrls\Item())->ajouterItem($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('prixItem'), $app->request->post('urlProduit'));
 });
 $app->post('/liste/:token/items/:id', function ($token, $id) use ($app) {
     (new cntrls\Item())->ajouterParticipant($token, $id, $app->request->post('participant'));
 });
 $app->post('/liste/:token/infos/del', function ($token) {
     (new cntrls\Liste())->supprimerListe($token);
+});
+$app->post('/liste/:token/items/:id/del', function ($token, $id) {
+    (new cntrls\Item())->supprimerItem($token, $id);
 });
 
 $app->run();
