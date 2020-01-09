@@ -12,9 +12,9 @@
     - ~~un clic sur un item donne accès à son détail~~
     - ~~Pour afficher une liste, il faut connaître son URL contenant un token~~
 - [x] 2 Afficher un item d'une liste
-    - ~~L'affichage d'un item présente toutes ses informations détaillées, son image,~~ et l'état de la
-    réservation (nom du participant sans message)
-    - L'état de la réservation est restreint pour le propriétaire de la liste (basé sur un cookie) : le nom du participant n’apparaît pas
+    - ~~L'affichage d'un item présente toutes ses informations détaillées, son image, et l'état de la
+    réservation (nom du participant sans message)~~
+    - ~~L'état de la réservation est restreint pour le propriétaire de la liste (basé sur un cookie) : le nom du participant n’apparaît pas~~
     - ~~Un item appartenant à aucune liste validée (par son créateur) ne peut pas être affiché~~
     - ~~Pour afficher un item d'une liste, il faut connaître l'URL de sa liste contenant un token~~
 - [x] 3 Réserver un item
@@ -48,7 +48,7 @@
     - Le créateur d'une liste peut modifier les informations des items de ses listes
     - Une fois réservé, un item ne peut plus être modifié
 - [ ] 10 Supprimer un item
-    - Le créateur d'une liste peut supprimer un item d'un de ses listes si il n'est pas reservé
+    - Le créateur d'une liste peut supprimer un item d'un de ses listes s'il n'est pas reservé
 - [ ] 11 Rajouter une image à un item
     - Le créateur d'une liste peut ajouter une image à un de ses items
     - Pour cela il fournit l'URL complète d'une image externe (acceptant le hot-linking) ou bien le chemin relatif d'une image déjà présente dans le dossier web/img/
