@@ -33,58 +33,66 @@ class ItemLarge {
 
         include __DIR__ . '/Header.php';
         echo <<< end
-                <div class="supprItem">
-                    <form method=POST id="delitem-form" action="/liste/$token/items/$id">
-                        <div class="form">
-                            <input type=submit value="Supprimer l'item">
-                        </div>
-                    </form>
-                    <div class="row">
+            <div>
+                <div class="row">
+                    <div>
+                        <img class="imageObjet" src="$IMG/$img" height='70' width='70'>
                         <div>
-                            <img class="imageObjet" src="$IMG/$img" height='70' width='70'>
-                            <div>
-                                <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €
-        end;
-        if($url) {
-            echo <<< end
-                                <br> URL : <a href = "$url" target = "_blank" > Lien vers Amazon </a >
+                            <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €</div>
             end;
-        }
-        echo <<< end
-                                </div >
-                            </div>
-                        </div>
+            if($url) {
+                echo <<< end
+                            <br> URL : <a href = "$url" target = "_blank" > Lien vers Amazon </a >
+                end;
+            }
+            echo <<< end
+                        </div >
                     </div>
-        end;
+                </div>
+            end;
+                    
         if($pseud !== $_SESSION['pseudo']) {
             if(!isset($participant)) {
                 echo <<< end
-                        <form method=POST id="resitem-form" action="/liste/$token/items/$id">
-                            <br><br><br>
-                            <div class="form partipItem">Souhaitez-vous participer ?</div>
-                                <div class="form desc">
-                                    Votre nom :
-                                </div>
-                                <div class="form input">
-                                    <input type=text name=titre placeholder="Nom du participant" value="$participant"/>
-                                </div>
-                                <div class="form">
-                                    <input type=submit value="Participer">
-                                </div>
-                            </div>
-                        </form>
-
-                    <script src="$JS/item.js"></script>
+                <form method=POST id="resitem-form" action="/liste/$token/items/$id">
+                    <br><br><br>
+                    <div class="form partipItem">Souhaitez-vous participer ?</div>
+                        <div class="form desc">
+                            Votre nom :
+                        </div>
+                        <div class="form input">
+                            <input type=text name=titre placeholder="Nom du participant" value="$participant"/>
+                        </div>
+                        <div class="form">
+                            <input type=submit value="Participer">
+                        </div>
+                    </div>
+                </form>
                 end;
             } else {
                 echo <<< end
-                        <div>Réservé par $participant</div>
+                <div>Réservé par $participant</div>
                 end;
             }
-            echo "</div>";
-            include __DIR__ . '/Footer.php';
         }
+        if(!isset($participant) && $pseud === $_SESSION['pseudo']) {
+            echo <<< end
+            <div class="supprItem">
+                <form method=POST id="delitem-form" action="/liste/$token/items/$id">
+                    <div class="form">
+                        <input type=submit value="Supprimer l'item">
+                    </div>
+                </form>
+            </div>
+            end;
+        }
+        echo <<< end
+            </div>
+            <script src="$JS/item.js"></script>
+        end;
+        include __DIR__ . '/Footer.php';
     }
 }
+
 
 ?>
