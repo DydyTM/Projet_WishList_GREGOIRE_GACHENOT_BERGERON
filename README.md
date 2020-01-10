@@ -1,7 +1,38 @@
 # WISHLIST
 
+## <u>Installation</u>
+
+La façon la plus simple d'installer ce site est la suivante :
+```bash
+cd ~
+git clone https://github.com/nanoninja/docker-nginx-php-mysql
+cd docker-nginx-php-mysql
+```
+
+Faites attention à avoir `docker-compose` par la suite. Si vous ne l'avez pas, veuillez suivre ces [instructions](https://docs.docker.com/compose/install/).
+
+```bash
+# On supprime le dossier `web` pour y mettre nos sources
+yes | rm -r web/
+git clone https://github.com/Dydouche/Projet_WishList_GREGOIRE_GACHENOT_BERGERON web/
+```
+
+Le projet est prêt à être démarré. Il ne reste plus qu'à configurer la base de données.
+
+```bash
+# Pour démarrer le serveur :
+# (Le premier démarrage prendra un petit peu de temps en fonction de la connexion disponible
+#  Pour vérifier les logs : `sudo docker-compose logs -f`)
+sudo docker-compose up -d
+# Pour arrêter le serveur :
+sudo docker-compose down -v
+```
+
+Une fois que le serveur est démarré, il faudra importer la base de données `wishlist` dans phpMyAdmin à l'adresse `localhost:8080` via le fichier [`setup.sql`](setup.sql).
+
+> L'utilisateur par défaut est `root` avec comme mot de passe `root`.
+
 ## <u>Roadmap</u>
-   ______________
 
 #### Participant :
 
