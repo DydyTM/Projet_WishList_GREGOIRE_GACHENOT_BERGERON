@@ -47,13 +47,17 @@ class Profil {
     }
 
     public function afficherProfil() {
+        $app = Slim::getInstance();
         if (!isset($_SESSION['pseudo'])) {
-            $app = Slim::getInstance();
             $app->response = new Response('', 403, []);
             return;
         }
 
         $u = Utilisateur::where('pseudo', '=', $_SESSION['pseudo'])->first();
+        if (!$u) {
+            $app->response = new Response('', 403, []);
+            return;
+        }
         (new v\ProfilPage($u, $u->listes()->all()))->afficher();
     }
 }
