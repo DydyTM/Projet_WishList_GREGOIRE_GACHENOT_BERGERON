@@ -47,8 +47,8 @@
 - [ ] 9 Modifier un item
     - Le créateur d'une liste peut modifier les informations des items de ses listes
     - Une fois réservé, un item ne peut plus être modifié
-- [ ] 10 Supprimer un item
-    - Le créateur d'une liste peut supprimer un item d'un de ses listes s'il n'est pas reservé
+- [x] 10 Supprimer un item
+    - ~~Le créateur d'une liste peut supprimer un item d'un de ses listes s'il n'est pas reservé~~
 - [ ] 11 Rajouter une image à un item
     - Le créateur d'une liste peut ajouter une image à un de ses items
     - Pour cela il fournit l'URL complète d'une image externe (acceptant le hot-linking) ou bien le chemin relatif d'une image déjà présente dans le dossier web/img/
@@ -61,7 +61,7 @@
     - ~~Une fois la liste entièrement saisie, le créateur peut la partager~~
     - ~~Le partage d'une liste génère une URL avec un token (jeton unique différent du token de modification) destiné à être envoyé aux futurs participants~~
 - [ ] 15 Consulter les réservations d'une de ses listes avant échéance
-    - Le créateur d'une liste partagée peut consulter les  réservations effectuées sur sa liste
+    - Le créateur d'une liste partagée peut consulter les réservations effectuées sur sa liste
     - Seul l'état réservé ou non s'affiche avant la date d'échéance
     - un cookie permet d'identifier le créateur de la liste qu'il soit authentifié ou non afin de cacher les noms des  participants (seuls les participants voient les noms des  autres participants). On suppose que le créateur accède à la  liste avec son navigateur habituel (celui sur lequel il s'est  déjà authentifié)
 - [ ] 16 Consulter les réservations et messages d'une de ses listes après échéance
