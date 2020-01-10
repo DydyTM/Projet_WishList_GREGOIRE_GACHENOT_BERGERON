@@ -26,6 +26,7 @@ class Item {
         $l = mdls\Liste::where('token_visu', '=', $listeToken)->first();
         $i = mdls\Item::where('liste_id', '=', $l['no'])->whereIn('id', [$id]);
         $i->update(['participant' => $participant]);
+        $_SESSION['particip'] = $participant;
     }
 
     public function ajouterItem($token, $titre, $description, $prix, $url) {

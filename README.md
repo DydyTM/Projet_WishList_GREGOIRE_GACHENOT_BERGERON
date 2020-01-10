@@ -51,7 +51,7 @@ Une fois que le serveur est démarré, il faudra importer la base de données `w
 - [x] 3 Réserver un item
     - ~~Dans la page de l'item, si l'item n'est pas réservé, un formulaire permet de saisir le nom du participant~~
     - ~~La validation du formulaire enregistre la participation~~
-    - Le nom du participant peut être mémorisé dans une variable de session ou un cookie pour pré-remplir le champ afin de ne pas avoir à le retaper
+    - ~~Le nom du participant peut être mémorisé dans une variable de session ou un cookie pour pré-remplir le champ afin de ne pas avoir à le retaper~~
 - [ ] 4 Ajouter un message avec sa réservation
     - Dans la page de l'item, si l'item n'est pas réservé, le formulaire de participation permet également de saisir un message destiné le créateur
     - La validation du formulaire enregistre le message avec la participation
