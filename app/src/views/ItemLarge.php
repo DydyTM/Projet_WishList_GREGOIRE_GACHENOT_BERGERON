@@ -53,15 +53,16 @@ class ItemLarge {
                     
         if($pseud !== $_SESSION['pseudo']) {
             if(!isset($participant)) {
+                $particip = $_SESSION['particip'];
                 echo <<< end
                 <form method=POST id="resitem-form" action="/liste/$token/items/$id">
-                    <br><br><br>
+                    <br><br><br>    
                     <div class="form partipItem">Souhaitez-vous participer ?</div>
                         <div class="form desc">
                             Votre nom :
                         </div>
                         <div class="form input">
-                            <input type=text name=titre placeholder="Nom du participant" value="$participant"/>
+                            <input type=text name=titre placeholder="Nom du participant" value="$particip"/>
                         </div>
                         <div class="form">
                             <input type=submit value="Participer">
