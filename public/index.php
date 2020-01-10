@@ -74,7 +74,7 @@ $app->post('/liste/:token/ajouterItem', function ($token) use ($app) {
     (new cntrls\Item())->ajouterItem($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('prixItem'), $app->request->post('urlProduit'));
 });
 $app->post('/liste/:token/items/:id', function ($token, $id) use ($app) {
-    (new cntrls\Item())->ajouterParticipant($token, $id, $app->request->post('participant'));
+    (new cntrls\Item())->ajouterParticipant($token, $id, $app->request->post('participant'), $app->request->post('commentaire'));
 });
 $app->post('/liste/:token/infos/del', function ($token) {
     (new cntrls\Liste())->supprimerListe($token);

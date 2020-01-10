@@ -23,6 +23,7 @@ class ItemLarge {
         $descr       = $this->item['descr'];
         $tarif       = $this->item['tarif'];
         $participant = $this->item['participant'];
+        $commentaire = $this->item['commentaire'];
         $pseud       = $this->propriétaire['pseudo'];
         $url         = $this->item['url'];
         $token       = $this->token;
@@ -64,6 +65,12 @@ class ItemLarge {
                         <div class="form input">
                             <input type=text name=titre placeholder="Nom du participant" value="$particip"/>
                         </div>
+                        <div class="form desc">
+                            Votre commentaire :
+                        </div>
+                        <div class="form input">
+                            <textarea type=text name=description placeholder="Un super commentaire">$commentaire</textarea>
+                        </div>
                         <div class="form">
                             <input type=submit value="Participer">
                         </div>
@@ -72,7 +79,8 @@ class ItemLarge {
                 end;
             } else {
                 echo <<< end
-                <div>Réservé par $participant</div>
+                <div>Réservé par $participant :</div>
+                <div>$commentaire</div>
                 end;
             }
         }

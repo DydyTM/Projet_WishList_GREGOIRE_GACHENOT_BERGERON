@@ -5,8 +5,10 @@ if(ajoutParticipant != undefined) {
     ajoutParticipant.addEventListener('submit', e => {
         e.preventDefault()
         const participant = e.target[0].value
+        const commentaire = e.target[1].value
         const data = new FormData()
         data.append('participant', escapeHTMLEncode(participant))
+        data.append('commentaire', escapeHTMLEncode(commentaire))
         const url = e.target.attributes[2].value
         fetch(url, {body: data, method: 'POST'})
             .then(r => {

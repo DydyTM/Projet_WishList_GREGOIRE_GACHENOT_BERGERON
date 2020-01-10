@@ -14,6 +14,7 @@ class Item extends Model {
     protected $url         = 'url';
     protected $tarif       = 'tarif';
     protected $participant = 'participant';
+    protected $commentaire = 'commentaire';
     public $timestamps     = false;
 
     public function liste() {
