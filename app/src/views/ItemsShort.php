@@ -9,13 +9,14 @@ class ItemsShort {
     private $items;
     private $token;
 
-    public function __construct($token, $items) {
+    public function __construct($token, $items, $pseud) {
         $this->token = $token;
         $this->items = $items;
+        $this->pseud = $pseud;
     }
 
     public function afficher() {
-        array_map(function ($id) { (new ItemShort($id, $this->token))->afficher(); }, $this->items);
+        array_map(function ($id) { (new ItemShort($id, $this->token, $this->pseud))->afficher(); }, $this->items);
     }
 }
 
