@@ -7,8 +7,8 @@
 
 - [x] 1 Afficher une liste de souhaits
     - ~~L'affichage du détail d'une liste présente toutes les informations de la liste accompagnées de la liste des items~~
-    - ~~Chaque item est affiché avec son nom, son image~~ et l'état de la réservation
-    - L'affichage de l'état de la réservation est restreint pour le propriétaire de la liste (basé sur un cookie) : le nom du participant et les messages n'apparaissent pas avant la date d'échéance
+    - ~~Chaque item est affiché avec son nom, son image et l'état de la réservation~~
+    - ~~L'affichage de l'état de la réservation est restreint pour le propriétaire de la liste (basé sur un cookie) : le nom du participant et les messages n'apparaissent pas avant la date d'échéance~~
     - ~~un clic sur un item donne accès à son détail~~
     - ~~Pour afficher une liste, il faut connaître son URL contenant un token~~
 - [x] 2 Afficher un item d'une liste
