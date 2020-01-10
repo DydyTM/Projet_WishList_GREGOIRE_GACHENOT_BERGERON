@@ -35,9 +35,23 @@ class ListeNouveau {
                 <div class="form desc">
                     Liste publique :
                 </div>
+        end;
+
+            if($_SESSION['pseudo'] == null) {
+                echo <<< end
                 <div class="form check">
-                    <input type=checkbox name=publique/>
+                    <input type=checkbox name=publique/ checked disabled>
                 </div>
+                end;
+            } else {
+                echo <<< end
+                <div class="form check">
+                    <input type=checkbox name="publique/"   >
+                </div>
+                end;
+            }
+
+                echo <<< end
                 <div class="form">
                     <input type=submit value="OK">
                 </div>
