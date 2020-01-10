@@ -15,6 +15,15 @@ Faites attention à avoir `docker-compose` par la suite. Si vous ne l'avez pas, 
 # On supprime le dossier `web` pour y mettre nos sources
 yes | rm -r web/
 git clone https://github.com/Dydouche/Projet_WishList_GREGOIRE_GACHENOT_BERGERON web/
+cd web
+```
+
+Il vous faudra aussi `npm`. Si vous ne l'avez pas, référez vous au [guide d'installation](https://www.npmjs.com/get-npm).
+
+```bash
+cd app
+npm start
+# Pour installer notre dépendance pour chiffrer les mots de passe en Argon2
 ```
 
 Le projet est prêt à être démarré. Il ne reste plus qu'à configurer la base de données.
