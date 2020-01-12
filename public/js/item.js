@@ -21,6 +21,42 @@ if(ajoutParticipant != undefined) {
     })
 }
 
+function modifier(tk, id) {
+    let port = ""
+    if ((port = window.location.port) !== 80)
+        port = `:${port}`
+    const host = window.location.hostname
+    window.location.href = `http://${host}${port}/liste/${tk}/items/${id}/infos`
+}
+
+const modificationItem = document.querySelector('#modifitem-form')
+if(modificationItem != undefined) {
+    nouvelleListe.addEventListener('submit', e => {
+        e.preventDefault()
+
+        const nom = e.target[0].value
+        const descr = e.target[1].value
+        const tarif = e.target[2].value
+        const url = e.target[3].value
+
+        const data = new FormData();
+
+        data.append('nom', escapeHTMLEncode(nom))
+        data.append('descr', escapeHTMLEncode(descr))
+        data.append('tarif', escapeHTMLEncode(tarif))
+        data.append('url', escapeHTMLEncode(url))
+        fetch(window.location.href, {body: data, method: 'POST'})
+            .then(r => {
+                if (!r.ok)
+                    throw new Error('Cannot post modifications of item: ' + r.status)
+            }).then(_ => {
+                alert('Item modifié avec succès')
+                window.location.href = '/'
+            }).catch(e => alert(e) /* TODO: add a HTML dialog */)
+    })
+}
+
+
 const delItem = document.querySelector('#delitem-form')
 if(delItem != undefined) {
     delItem.addEventListener('submit', e => {

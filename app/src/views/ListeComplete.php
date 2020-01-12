@@ -28,7 +28,6 @@ class ListeComplete {
         include __DIR__ . '/Header.php';
 
         echo <<< end
-            
                 <h1>$name <h2 align=right>Par $pseud</h2></h1>
                 <h3>$descr</h3>
                 <button onclick="javascript:partager('$tk', false)">Partager</button>

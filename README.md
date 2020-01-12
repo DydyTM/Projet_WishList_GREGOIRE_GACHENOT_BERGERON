@@ -80,7 +80,7 @@ Une fois que le serveur est démarré, il faudra importer la base de données `w
     - ~~Le créateur d'une liste peut modifier les informations générales de ses listes~~
     - ~~Pour modifier il doit connaître son URL de modification (avec token)~~
 - [x] 8 Ajouter des items
-    - Le créateur d'une liste ~~peut ajouter des items à une de ses listes après l'avoir sélectionnée par son URL de modification (avec token)~~
+    - ~~Le créateur d'une liste peut ajouter des items à une de ses listes après l'avoir sélectionnée par son URL de modification (avec token)~~
     - ~~Un formulaire permet de saisir les informations de l'item~~
     - ~~les informations sont : nom et description et prix~~
     - ~~il peut aussi fournir l'URL d'une page externe qui détaille  le produit (sur un site de ecommerce par exemple)~~

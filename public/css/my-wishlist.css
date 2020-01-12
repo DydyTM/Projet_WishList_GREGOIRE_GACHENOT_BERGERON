@@ -47,6 +47,18 @@ hr {
     margin-bottom: 3rem;
 }
 
+.nouvelItem {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+
+.modifDescItem {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+
 header {
     height: 3rem;
     position: fixed;

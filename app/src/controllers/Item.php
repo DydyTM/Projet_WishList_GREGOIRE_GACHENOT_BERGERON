@@ -4,8 +4,8 @@ namespace wishlist\controllers;
 
 use Slim\Http\Response;
 use wishlist\models as mdls;
-use wishlist\models\Liste as MListe;
 use wishlist\models\Utilisateur;
+use wishlist\models\Liste as MListe;
 use wishlist\views\ItemLarge;
 use Slim\Slim;
 
@@ -40,6 +40,16 @@ class Item {
         $i->url = $url;
         $i->img = '';
         $i->save();
+    }
+
+    public function modifierItem($token, $id, $nom, $descr, $prix, $url) {
+        $app = Slim::getInstance();
+        $l = mdls\Liste::where('token_modif', '=', $token);
+        if(!$l){
+            return $app->response = new Response('', 404, []);
+        }
+        $i = mdls\Item::whereIn('id', [$id]);
+        $i->update(['nom' => $nom, 'descr' => $descr, 'tarif' => $prix, 'url' => $url]);
     }
 
     public function supprimerItem($token, $id) {

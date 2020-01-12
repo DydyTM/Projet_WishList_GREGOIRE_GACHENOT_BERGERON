@@ -73,6 +73,9 @@ $app->post('/liste/:token/infos', function ($token) use ($app) {
 $app->post('/liste/:token/ajouterItem', function ($token) use ($app) {
     (new cntrls\Item())->ajouterItem($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('prixItem'), $app->request->post('urlProduit'));
 });
+$app->post('/liste/:token/items/:id/infos', function($token, $id) use ($app) {
+    (new cntrls\Item())->modifierItem($token, $id, $app->request->post('nom'), $app->request->post('descr'), $app->request->post('tarif'), $app->request->post('url'));
+});
 $app->post('/liste/:token/items/:id', function ($token, $id) use ($app) {
     (new cntrls\Item())->ajouterParticipant($token, $id, $app->request->post('participant'), $app->request->post('commentaire'));
 });
