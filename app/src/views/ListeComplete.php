@@ -41,6 +41,17 @@ class ListeComplete {
                 }
                 
 
+        if ($pseud === $_SESSION['pseudo']) {
+            echo <<< end
+                <button onclick="javascript:partager('$tk_mod', true)">Partager avec droit de modification</button> 
+                <button onclick="modifier('$tk_mod')">Modifier</button>
+            end;
+        } else {
+            echo <<< end
+                <button onclick="ajoutCommentaire('$tk')">Ajouter un commentaire</button>
+            end;
+        }
+                
         echo <<< end
                 <h5 align=right>expire : $exp</h5>
                 <hr>

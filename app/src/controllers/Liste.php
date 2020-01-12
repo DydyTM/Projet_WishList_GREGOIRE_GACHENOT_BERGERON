@@ -109,6 +109,14 @@ class Liste {
         Item::where('liste_id', '=', $l->first()["no"])->delete();
         $l->delete();
     }
+
+    public function afficherAjoutCommentaire($tk) {
+        (new v\CommentaireNouveau($tk))->afficher();
+    }
+
+    public function ajouterCommentaire($pseud, $message, $listeToken) {
+        // nop
+    }
 }
 
 ?>

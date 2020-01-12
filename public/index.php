@@ -44,6 +44,9 @@ $app->get('/liste/:token/infos', function ($token) {
 $app->get('/liste/:token/ajouterItem', function ($token) {
     (new cntrls\Liste())->afficherAjoutItem($token);
 })->name('ajoutItem');
+$app->get('/liste/:token/ajoutCommentaire', function  ($token) {
+    (new cntrls\Liste())->afficherAjoutCommentaire($token);
+})->name('ajoutCommentaire');
 $app->get('/', function () {
     (new cntrls\Index())->page();
 })->name('root');
@@ -84,6 +87,9 @@ $app->post('/liste/:token/infos/del', function ($token) {
 });
 $app->post('/liste/:token/items/:id/del', function ($token, $id) {
     (new cntrls\Item())->supprimerItem($token, $id);
+});
+$app->post('/liste/:token/ajoutCommentaire', function ($token) use ($app) {
+    (new cntrls\Liste())->ajouterCommentaire($app->request->post('pseudo'), $app->request->post('message'), $token);
 });
 
 $app->run();
