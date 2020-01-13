@@ -9,11 +9,13 @@ class ItemLarge {
     private $item;
     private $token;
     private $participant;
+    private $expiré;
 
-    public function __construct($item, $token, $proprio) {
+    public function __construct($item, $token, $proprio, $expir) {
         $this->item         = $item;
         $this->token        = $token;
         $this->propriétaire = $proprio;
+        $this->expiré       = $expir;
     }
 
     public function afficher() {
@@ -27,6 +29,7 @@ class ItemLarge {
         $pseud       = $this->propriétaire['pseudo'];
         $url         = $this->item['url'];
         $token       = $this->token;
+        $expir       = $this->expiré;
         $path        = Slim::getInstance()->urlFor('affichageItem', ['token' => $token, 'id' => $id]);
 
         $IMG         = Chemins::$IMG;
@@ -52,8 +55,8 @@ class ItemLarge {
                 </div>
             end;
                     
-        if($pseud !== $_SESSION['pseudo']) {
-            if(!isset($participant)) {
+        if($pseud !== $_SESSION['pseudo'] || $expir) {
+            if(!isset($participant) && !$expir) {
                 $particip = $_SESSION['particip'];
                 echo <<< end
                 <form method=POST id="resitem-form" action="/liste/$token/items/$id">
@@ -84,7 +87,7 @@ class ItemLarge {
                 end;
             }
         }
-        if(!isset($participant) && $pseud === $_SESSION['pseudo']) {
+        if(!isset($participant) && $pseud === $_SESSION['pseudo'] && !$expir) {
             echo <<< end
                 <div class="modifiItem">
                     <form method=POST id="modifitem-form" action="/liste/$token/items/$id/infos">

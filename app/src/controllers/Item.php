@@ -14,9 +14,12 @@ class Item {
     public function afficherItem($listeToken, $id) {
         $l = mdls\Liste::where('token_visu', '=', $listeToken)->first();
         $i = $l->items()->where('id', '=', $id)->first();
+        if($l['expiration'] < date('Y-m-d')) {
+            $expir = true;
+        } else $expir = false;
         if ($i) {
             $prop = mdls\Utilisateur::where('user_id', '=', $l['user_id'])->first();
-            (new ItemLarge($i, $listeToken, $prop))->afficher();
+            (new ItemLarge($i, $listeToken, $prop, $expir))->afficher();
         } else {
             // TODO: throw 404 error
         }
