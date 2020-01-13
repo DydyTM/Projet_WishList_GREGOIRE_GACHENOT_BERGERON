@@ -45,7 +45,7 @@ if(modificationItem != undefined) {
         data.append('descr', escapeHTMLEncode(descr))
         data.append('tarif', escapeHTMLEncode(tarif))
         data.append('url', escapeHTMLEncode(url))
-        fetch(`${window.location.href}/infos`, {body: data, method: 'POST'})
+        fetch(`${window.location.href}`, {body: data, method: 'POST'})
             .then(r => {
                 if (!r.ok)
                     throw new Error('Cannot post modifications of item: ' + r.status)

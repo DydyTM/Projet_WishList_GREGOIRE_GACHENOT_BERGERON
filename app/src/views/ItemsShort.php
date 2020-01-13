@@ -8,6 +8,7 @@ use Slim\Slim;
 class ItemsShort {
     private $items;
     private $token;
+    private $pseud;
 
     public function __construct($token, $items, $pseud) {
         $this->token = $token;

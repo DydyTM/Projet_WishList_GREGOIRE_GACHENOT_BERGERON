@@ -5,7 +5,7 @@ namespace wishlist\views;
 use wishlist\Chemins;
 use Slim\Slim;
 
-class ItemShort {
+class ItemShortModif {
     private $item;
     private $token;
 
@@ -24,13 +24,13 @@ class ItemShort {
         $url         = $this->item['url'];
         $participant = $this->item['participant'];
         $token       = $this->token;
-        $path        = Slim::getInstance()->urlFor('affichageItem', ['token' => $token, 'id' => $id]);
+        $path        = Slim::getInstance()->urlFor('affichageModifItem', ['token' => $token, 'id' => $id]);
 
         $IMG   = Chemins::$IMG;
 
         echo <<< end
             <div class="row">
-                <a class="invisible-link">
+                <a class="invisible-link" href="$path">
                     <img class="imageObjet" src="$IMG/$img" height='70' width='70'>
                     <div>
                         <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €</div>

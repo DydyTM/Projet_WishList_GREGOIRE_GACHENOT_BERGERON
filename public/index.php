@@ -32,6 +32,9 @@ $app->get('/liste/:token', function ($token) {
 $app->get('/liste/:token/items/:id', function ($token, $id) {
     (new cntrls\Item())->afficherItem($token, $id);
 })->name('affichageItem');
+$app->get('/liste/:token/items/:id/infos', function ($token, $id) {
+    (new cntrls\Item())->afficherItemModifs($token, $id);
+})->name('affichageModifItem');
 $app->get('/nouveau/liste', function () {
     (new cntrls\Liste())->nouvelleListe();
 })->name('créerListe');
