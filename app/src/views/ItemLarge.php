@@ -87,7 +87,7 @@ class ItemLarge {
         if(!isset($participant) && $pseud === $_SESSION['pseudo']) {
             echo <<< end
                 <div class="modifiItem">
-                    <form method=POST id="modifitem-form" action="/liste/$token/items/$id/infos    ">
+                    <form method=POST id="modifitem-form" action="/liste/$token/items/$id/infos">
                         <div class="modifDescItem">Modifcation de l'item !</div>
                         <div class="form desc">
                             Nom :
@@ -99,7 +99,7 @@ class ItemLarge {
                             Description :
                         </div>
                         <div class="form input">
-                            <textarea type=text name=description placeholder="Un super item"></textarea>
+                            <textarea type=text name=description placeholder="Un super item">$descr</textarea>
                         </div>
                         <div class="form desc">
                             Prix :

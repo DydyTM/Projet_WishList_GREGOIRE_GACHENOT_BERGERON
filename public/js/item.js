@@ -31,7 +31,7 @@ function modifier(tk, id) {
 
 const modificationItem = document.querySelector('#modifitem-form')
 if(modificationItem != undefined) {
-    nouvelleListe.addEventListener('submit', e => {
+    modificationItem.addEventListener('submit', e => {
         e.preventDefault()
 
         const nom = e.target[0].value
@@ -39,13 +39,13 @@ if(modificationItem != undefined) {
         const tarif = e.target[2].value
         const url = e.target[3].value
 
-        const data = new FormData();
+        const data = new FormData()
 
         data.append('nom', escapeHTMLEncode(nom))
         data.append('descr', escapeHTMLEncode(descr))
         data.append('tarif', escapeHTMLEncode(tarif))
         data.append('url', escapeHTMLEncode(url))
-        fetch(window.location.href, {body: data, method: 'POST'})
+        fetch(`${window.location.href}/infos`, {body: data, method: 'POST'})
             .then(r => {
                 if (!r.ok)
                     throw new Error('Cannot post modifications of item: ' + r.status)

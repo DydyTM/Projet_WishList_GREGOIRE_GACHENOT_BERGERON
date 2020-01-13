@@ -48,6 +48,7 @@ class Item {
         if(!$l){
             return $app->response = new Response('', 404, []);
         }
+
         $i = mdls\Item::whereIn('id', [$id]);
         $i->update(['nom' => $nom, 'descr' => $descr, 'tarif' => $prix, 'url' => $url]);
     }
