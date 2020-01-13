@@ -163,4 +163,4 @@ COMMIT;
 --
 -- Add column 'commentaire' on item
 --
-ALTER TABLE `item` ADD `commentaire` VARCHAR(256) DEFAULT NULL AFTER `participant`; 
+ALTER TABLE `item` ADD `commentaire` VARCHAR(256) NULL DEFAULT NULL AFTER `participant`; 
