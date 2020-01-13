@@ -16,10 +16,13 @@ class Liste {
     public function afficherItems($tk) {
         $l    = MListe::where('token_visu', '=', $tk)->first();
         $prop = Utilisateur::where('user_id', '=', $l['user_id'])->first();
+        if($l['expiration'] < date('Y-m-d')) {
+            $expir = true;
+        } else $expir = false;
         if (!$prop)
             $prop = ['pseudo' => 'un inconnu'];
         $cs   = Commentaires::where('liste_id', '=', $l['no'])->get()->all();
-        (new v\ListeComplete($l, $l->items()->all(), $prop, $cs))->afficher();
+        (new v\ListeComplete($l, $l->items()->all(), $prop, $cs, $expir))->afficher();
     }
 
     // 6 : Créer une liste

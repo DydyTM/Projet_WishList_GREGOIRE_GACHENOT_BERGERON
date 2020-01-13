@@ -9,12 +9,14 @@ class ListeComplete {
     private $items;
     private $propriétaire;
     private $commentaires;
+    private $expiré;
 
-    public function __construct($l, $items, $proprio, $commentaires) {
+    public function __construct($l, $items, $proprio, $commentaires, $expir) {
         $this->liste = $l;
         $this->items = $items;
         $this->propriétaire = $proprio;
         $this->commentaires = $commentaires;
+        $this->expiré       = $expir;
     }
 
     public function afficher() {
@@ -25,6 +27,7 @@ class ListeComplete {
         $tk_mod = $this->liste['token_modif'];
         $items  = $this->items;
         $pseud  = $this->propriétaire['pseudo'];
+        $expir  = $this->expiré;
         $JS     = Chemins::$JS;
 
         include __DIR__ . '/Header.php';
@@ -34,16 +37,17 @@ class ListeComplete {
                 <h3>$descr</h3>
                 <button onclick="javascript:partager('$tk', false)">Partager</button>
                 end;                
-
-        if ($pseud === $_SESSION['pseudo']) {
-            echo <<< end
-                <button onclick="javascript:partager('$tk_mod', true)">Partager avec droit de modification</button> 
-                <button onclick="modifier('$tk_mod')">Modifier</button>
-            end;
-        } else {
-            echo <<< end
-                <button onclick="ajoutCommentaire('$tk')">Ajouter un commentaire</button>
-            end;
+        if(!$expir) {
+            if ($pseud === $_SESSION['pseudo']) {
+                echo <<< end
+                    <button onclick="javascript:partager('$tk_mod', true)">Partager avec droit de modification</button> 
+                    <button onclick="modifier('$tk_mod')">Modifier</button>
+                end;
+            } else {
+                echo <<< end
+                    <button onclick="ajoutCommentaire('$tk')">Ajouter un commentaire</button>
+                end;
+            }
         }
                 
         echo <<< end
@@ -53,7 +57,7 @@ class ListeComplete {
             </div>
         end;
 
-        (new ItemsShort($tk, $items, $pseud))->afficher();
+        (new ItemsShort($tk, $items, $pseud, $expir))->afficher();
 
         echo <<< end
             <hr style="width: 100%;">
