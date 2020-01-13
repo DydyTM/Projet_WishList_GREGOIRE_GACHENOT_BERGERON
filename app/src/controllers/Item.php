@@ -21,9 +21,20 @@ class Item {
             $prop = mdls\Utilisateur::where('user_id', '=', $l['user_id'])->first();
             (new ItemLarge($i, $listeToken, $prop, $expir))->afficher();
         } else {
-            // TODO: throw 404 error
+            Slim::getInstance()->response = new Response('', 404, []);
         }
-    }   
+    }
+
+    public function afficherItemModifs($listeToken, $id) {
+        $l = mdls\Liste::where('token_modif', '=', $listeToken)->first();
+        $i = $l->items()->where('id', '=', $id)->first();
+        if ($i) {
+            $prop = mdls\Utilisateur::where('user_id', '=', $l['user_id'])->first();
+            (new ItemLarge($i, $listeToken, $prop))->afficher();
+        } else {
+            Slim::getInstance()->response = new Response($id, 404, []);
+        }
+    }
 
     public function ajouterParticipant($listeToken, $id, $participant, $commentaire) {
         $l = mdls\Liste::where('token_visu', '=', $listeToken)->first();

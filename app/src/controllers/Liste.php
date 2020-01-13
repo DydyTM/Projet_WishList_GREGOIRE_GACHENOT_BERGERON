@@ -82,8 +82,8 @@ class Liste {
             $app->response = new Response('', 403, []);
             return;
         }
-
-        (new v\ListeInfos($tk, $l))->afficher();
+        $i = Item::where('liste_id', '=', $l["no"])->get()->all();
+        (new v\ListeInfos($tk, $l, $i, $l['pseudo']))->afficher();
     }
 
     public function modifierListe($tk, $titre, $descr, $expir, $public) {

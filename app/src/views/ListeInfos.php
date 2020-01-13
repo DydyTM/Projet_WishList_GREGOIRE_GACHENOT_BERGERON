@@ -3,14 +3,19 @@
 namespace wishlist\views;
 
 use wishlist\Chemins;
+use wishlist\views\ItemShortModif as ISM;
 
 class ListeInfos {
     private $token;
     private $liste;
+    private $items;
+    private $pseudo;
 
-    public function __construct($tk, $l) {
+    public function __construct($tk, $l, $i, $p) {
         $this->token = $tk;
         $this->liste = $l;
+        $this->items  = $i;
+        $this->pseudo = $p;
     }
 
     public function afficher() {
@@ -19,7 +24,10 @@ class ListeInfos {
         $expir       = $this->liste['expiration'];
         $token       = $this->token;
         $checked     = $this->liste['publique'];
+        $items       = $this->items;
+        $pseudo      = $this->pseudo;
         $JS          = Chemins::$JS;
+
 
         include __DIR__ . '/Header.php';
         echo <<< end
@@ -65,7 +73,11 @@ class ListeInfos {
                     <input type=submit value="Supprimer la liste">
                 </div>
             </form>
-
+        end;
+        foreach($items as $item) {
+            (new ISM($item, $token, $pseudo))->afficher();
+        }
+        echo <<< end
             <script src="$JS/liste.js"></script>
         end;
         include __DIR__ . '/Footer.php';
