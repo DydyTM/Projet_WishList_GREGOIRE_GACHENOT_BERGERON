@@ -18,7 +18,7 @@ class Item {
             $prop = mdls\Utilisateur::where('user_id', '=', $l['user_id'])->first();
             (new ItemLarge($i, $listeToken, $prop))->afficher();
         } else {
-            // TODO: throw 404 error
+            Slim::getInstance()->response = new Response('', 404, []);
         }
     }   
 
