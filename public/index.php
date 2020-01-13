@@ -44,6 +44,9 @@ $app->get('/liste/:token/infos', function ($token) {
 $app->get('/liste/:token/ajouterItem', function ($token) {
     (new cntrls\Liste())->afficherAjoutItem($token);
 })->name('ajoutItem');
+$app->get('/liste/:token/ajoutCommentaire', function  ($token) {
+    (new cntrls\Liste())->afficherAjoutCommentaire($token);
+})->name('ajoutCommentaire');
 $app->get('/', function () {
     (new cntrls\Index())->page();
 })->name('root');
@@ -73,6 +76,9 @@ $app->post('/liste/:token/infos', function ($token) use ($app) {
 $app->post('/liste/:token/ajouterItem', function ($token) use ($app) {
     (new cntrls\Item())->ajouterItem($token, $app->request->post('titre'), $app->request->post('description'), $app->request->post('prixItem'), $app->request->post('urlProduit'));
 });
+$app->post('/liste/:token/items/:id/infos', function($token, $id) use ($app) {
+    (new cntrls\Item())->modifierItem($token, $id, $app->request->post('nom'), $app->request->post('descr'), $app->request->post('tarif'), $app->request->post('url'));
+});
 $app->post('/liste/:token/items/:id', function ($token, $id) use ($app) {
     (new cntrls\Item())->ajouterParticipant($token, $id, $app->request->post('participant'), $app->request->post('commentaire'));
 });
@@ -81,6 +87,9 @@ $app->post('/liste/:token/infos/del', function ($token) {
 });
 $app->post('/liste/:token/items/:id/del', function ($token, $id) {
     (new cntrls\Item())->supprimerItem($token, $id);
+});
+$app->post('/liste/:token/ajoutCommentaire', function ($token) use ($app) {
+    (new cntrls\Liste())->ajouterCommentaire($app->request->post('pseudo'), $app->request->post('message'), $token);
 });
 
 $app->run();

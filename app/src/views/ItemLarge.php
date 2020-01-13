@@ -86,13 +86,42 @@ class ItemLarge {
         }
         if(!isset($participant) && $pseud === $_SESSION['pseudo']) {
             echo <<< end
-            <div class="supprItem">
-                <form method=POST id="delitem-form" action="/liste/$token/items/$id">
-                    <div class="form">
-                        <input type=submit value="Supprimer l'item">
-                    </div>
-                </form>
-            </div>
+                <div class="modifiItem">
+                    <form method=POST id="modifitem-form" action="/liste/$token/items/$id/infos    ">
+                        <div class="modifDescItem">Modifcation de l'item !</div>
+                        <div class="form desc">
+                            Nom :
+                        </div>
+                        <div class="form input">
+                            <input type=text name=titre placeholder="Nom item" value="$nom"/>
+                        </div>
+                        <div class="form desc">
+                            Description :
+                        </div>
+                        <div class="form input">
+                            <textarea type=text name=description placeholder="Un super item"></textarea>
+                        </div>
+                        <div class="form desc">
+                            Prix :
+                        </div>
+                        <div class="form input">
+                            <input type="number" name=prixItem min="0.00" step="0.01" value="$tarif"/>
+                        </div>
+                        <div class="form input">
+                            <input type=text name=urlProduit placeholder="URL du produit sur Amazon" value="$url"/>
+                        </div>
+                        <div class="form">
+                            <input type=submit value="Modifier">
+                        </div>
+                    </form>
+                </div>
+                <div class="supprItem">
+                    <form method=POST id="delitem-form" action="/liste/$token/items/$id/del">
+                        <div class="form">
+                            <input type=submit value="Supprimer l'item">
+                        </div>
+                    </form>
+                </div>
             end;
         }
         echo <<< end

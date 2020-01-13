@@ -119,3 +119,31 @@ if (delListe != undefined) {
             }).catch(e => alert(e))
     })
 }
+
+function ajoutCommentaire(tk) {
+    window.location.href = `/liste/${tk}/ajoutCommentaire`
+}
+
+const nouveauCommentaire = document.getElementById('newcomm-form')
+if (nouveauCommentaire != undefined) {
+    nouveauCommentaire.addEventListener('submit', e => {
+        e.preventDefault()
+
+        const data = new FormData();
+        data.append('pseudo', escapeHTMLEncode(e.target[0].value))
+        data.append('message', escapeHTMLEncode(e.target[1].value))
+        const token = e.target.attributes[2].value
+
+        const url = `/liste/${token}/ajoutCommentaire`
+        
+        fetch(url, {body: data, method: 'POST'})
+            .then(r => {
+                if (!r.ok)
+                    throw new Error("Could not post: " + r.status)
+            })
+            .then(_ => {
+                alert('Commentaire ajouté')
+                window.location.href = url
+            })
+    })
+}

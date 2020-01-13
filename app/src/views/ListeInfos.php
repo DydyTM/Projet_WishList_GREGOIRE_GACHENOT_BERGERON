@@ -60,7 +60,7 @@ class ListeInfos {
             </form>
 
             <button onclick="javascript:ajouterItem('$token')">Ajouter un item</button>
-            <form method=POST id="delliste-form" action="/liste/$token>
+            <form method=POST id="delliste-form" action="/liste/$token">
                 <div class="form">
                     <input type=submit value="Supprimer la liste">
                 </div>
