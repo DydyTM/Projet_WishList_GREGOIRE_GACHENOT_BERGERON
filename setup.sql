@@ -34,7 +34,7 @@ CREATE TABLE `commentaires` (
   `id` int(20) NOT NULL,
   `liste_id` int(11) NOT NULL,
   `commentaire` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(11) NOT NULL
+  `pseudo` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -92,8 +92,7 @@ CREATE TABLE `utilisateur` (
 --
 ALTER TABLE `commentaires`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `liste_id` (`liste_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `liste_id` (`liste_id`);
 
 --
 -- Indexes for table `item`
@@ -152,15 +151,15 @@ ALTER TABLE `utilisateur`
 -- Constraints for table `commentaires`
 --
 ALTER TABLE `commentaires`
-  ADD CONSTRAINT `commentaires_ibfk_1` FOREIGN KEY (`liste_id`) REFERENCES `liste` (`no`),
-  ADD CONSTRAINT `commentaires_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `utilisateur` (`user_id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  ADD CONSTRAINT `commentaires_ibfk_1` FOREIGN KEY (`liste_id`) REFERENCES `liste` (`no`);
 
 --
 -- Add column 'commentaire' on item
 --
 ALTER TABLE `item` ADD `commentaire` VARCHAR(256) NULL DEFAULT NULL AFTER `participant`; 
+
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

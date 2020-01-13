@@ -6,6 +6,7 @@ use wishlist\views as v;
 use wishlist\models\Liste as MListe;
 use wishlist\models\Item as MItem;
 use wishlist\models\Utilisateur;
+use wishlist\models\Commentaires;
 use wishlist\models\Item;
 use Slim\Slim;
 use Slim\Http\Response;
@@ -17,7 +18,8 @@ class Liste {
         $prop = Utilisateur::where('user_id', '=', $l['user_id'])->first();
         if (!$prop)
             $prop = ['pseudo' => 'un inconnu'];
-        (new v\ListeComplete($l, $l->items()->all(), $prop))->afficher();
+        $cs   = Commentaires::where('liste_id', '=', $l['no'])->get()->all();
+        (new v\ListeComplete($l, $l->items()->all(), $prop, $cs))->afficher();
     }
 
     // 6 : Créer une liste
@@ -115,7 +117,16 @@ class Liste {
     }
 
     public function ajouterCommentaire($pseud, $message, $listeToken) {
-        // nop
+        $l = MListe::where('token_visu', '=', $listeToken)->first();
+        if (!$l) {
+            return Slim::getInstance()->response = new Response('', 404, []);
+        }
+
+        $c = new Commentaires();
+        $c->pseudo = $pseud;
+        $c->liste_id = $l['no'];
+        $c->commentaire = $message;
+        $c->save();
     }
 }
 

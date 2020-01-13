@@ -8,11 +8,13 @@ class ListeComplete {
     private $liste;
     private $items;
     private $propriétaire;
+    private $commentaires;
 
-    public function __construct($l, $items, $proprio) {
+    public function __construct($l, $items, $proprio, $commentaires) {
         $this->liste = $l;
         $this->items = $items;
         $this->propriétaire = $proprio;
+        $this->commentaires = $commentaires;
     }
 
     public function afficher() {
@@ -52,6 +54,16 @@ class ListeComplete {
         end;
 
         (new ItemsShort($tk, $items, $pseud))->afficher();
+
+        echo <<< end
+            <hr style="width: 100%;">
+
+            <h3><u>Commentaires : </u></h3><br>
+        end;
+
+        foreach ($this->commentaires as $comm) {
+            (new CommentaireLarge($comm))->afficher();
+        }
 
         echo <<< end
             <script src="$JS/liste.js"></script>

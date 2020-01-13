@@ -64,9 +64,9 @@ Une fois que le serveur est démarré, il faudra importer la base de données `w
 - [x] 4 Ajouter un message avec sa réservation
     - ~~Dans la page de l'item, si l'item n'est pas réservé, le formulaire de participation permet également de saisir un message destiné le créateur~~
     - ~~La validation du formulaire enregistre le message avec la participation~~
-- [ ] 5 Ajouter un message sur une liste
-    - Dans la page d'une liste, un formulaire permet d'ajouter un message public rattaché à la liste
-    - Les messages sur la liste seront affichés avec le détail de la liste
+- [x] 5 Ajouter un message sur une liste
+    - ~~Dans la page d'une liste, un formulaire permet d'ajouter un message public rattaché à la liste~~
+    - ~~Les messages sur la liste seront affichés avec le détail de la liste~~
 - [x] 6 Créer une liste
     - ~~Un utilisateur non authentifié peut créer une nouvelle liste de souhaits~~
     - ~~Un formulaire lui permet de saisir les informations générales de la liste~~
