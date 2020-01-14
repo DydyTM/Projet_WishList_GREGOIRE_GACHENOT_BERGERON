@@ -34,6 +34,7 @@ class ItemShort {
         echo <<< end
             <div class="row">
                 <a class="invisible-link" href="$path">
+                <img class="imageObjet" src="$IMG/$img" height='70' width='70'>
                     <div>
                         <div><u>Item #$id : $nom</u><br>$descr<br>Tarif : $tarif €</div>
                     </div>

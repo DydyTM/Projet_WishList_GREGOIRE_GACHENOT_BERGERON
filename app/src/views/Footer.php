@@ -9,7 +9,7 @@ echo <<< footer
         </div>
         <footer class="page-bottom">
             <hr>
-            <div>Copyright &copy; My Wishlist 2019 <br>
+            <div>Copyright &copy; My Wishlist 2019-2020 <br>
                  BERGERON Ghilain, GREGOIRE Dylan, GACHENOT Antoine</div>
         </footer>
     </body>
