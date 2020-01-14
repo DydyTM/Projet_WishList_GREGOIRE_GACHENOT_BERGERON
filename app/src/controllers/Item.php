@@ -30,7 +30,7 @@ class Item {
         $i = $l->items()->where('id', '=', $id)->first();
         if ($i) {
             $prop = mdls\Utilisateur::where('user_id', '=', $l['user_id'])->first();
-            (new ItemLarge($i, $listeToken, $prop))->afficher();
+            (new ItemLarge($i, $listeToken, $prop, false))->afficher();
         } else {
             Slim::getInstance()->response = new Response($id, 404, []);
         }

@@ -61,7 +61,7 @@ class ListeComplete {
 
         echo <<< end
             <hr style="width: 100%;">
-
+            <div class="commentaire">
             <h3><u>Commentaires : </u></h3><br>
         end;
 
@@ -70,6 +70,7 @@ class ListeComplete {
         }
 
         echo <<< end
+                </div>
             <script src="$JS/liste.js"></script>
         end;
 

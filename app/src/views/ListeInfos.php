@@ -67,15 +67,21 @@ class ListeInfos {
                 </div>
             </form>
 
-            <button onclick="javascript:ajouterItem('$token')">Ajouter un item</button>
+            <button style="display: block; margin: auto; margin-bottom: 10px;" onclick="javascript:ajouterItem('$token')">Ajouter un item</button>
             <form method=POST id="delliste-form" action="/liste/$token">
                 <div class="form">
                     <input type=submit value="Supprimer la liste">
                 </div>
             </form>
+            <br><br>
         end;
-        foreach($items as $item) {
-            (new ISM($item, $token, $pseudo))->afficher();
+        if($pseudo !== $_SESSION['pseudo']) {
+            echo <<< end
+            <h3><u>Item à modifier : </u></h3><br>
+            end;
+            foreach ($items as $item) {
+                (new ISM($item, $token, $pseudo))->afficher();
+            }
         }
         echo <<< end
             <script src="$JS/liste.js"></script>

@@ -14,8 +14,10 @@ class CommentaireLarge {
         $pseud = $this->commentaire['pseudo'];
 
         echo <<< end
+        <div class="corpsCommentaire">
             <div>Par : $pseud </div>
             <div>$msg</div>
+            </div>
             <span style="margin-bottom: 20px;"></span>
         end;
     }

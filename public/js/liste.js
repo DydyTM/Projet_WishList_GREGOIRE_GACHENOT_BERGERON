@@ -21,7 +21,7 @@ if (nouvelleListe != undefined) {
                     throw new Error('Cannot post new list: ' + r.status)
             }).then(_ => {
                 alert('Nouvelle liste créée')
-                window.location.href = '/nouveau/liste'
+                window.location.href = '/profil'
             }).catch(e => alert(e) /* TODO: add a HTML dialog */)
     })
 }
@@ -69,7 +69,7 @@ if (nouveauItem != undefined) {
                     throw new Error()
             }).then(_ => {
                 alert('Nouvel item créé')
-                window.location.href = url
+                window.location.href = `/profil`
             }).catch(_ => alert(`Could not post to ${url}`))
     })
 }
@@ -108,7 +108,7 @@ const delListe = document.querySelector('#delliste-form')
 if (delListe != undefined) {
     delListe.addEventListener('submit', e => {
         e.preventDefault()
-        const url = `/`
+        const url = `/profil`
         fetch(`${window.location.href}/del`, {method: 'POST'})
             .then(r => {
                 if (!r.ok)
@@ -134,9 +134,9 @@ if (nouveauCommentaire != undefined) {
         data.append('message', escapeHTMLEncode(e.target[1].value))
         const token = e.target.attributes[2].value
 
-        const url = `/liste/${token}/ajoutCommentaire`
+        const url = `/liste/${token}`
         
-        fetch(url, {body: data, method: 'POST'})
+        fetch(`/liste/${token}/ajoutCommentaire`, {body: data, method: 'POST'})
             .then(r => {
                 if (!r.ok)
                     throw new Error("Could not post: " + r.status)

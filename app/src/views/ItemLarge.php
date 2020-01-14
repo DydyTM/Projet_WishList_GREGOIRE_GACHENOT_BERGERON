@@ -46,13 +46,12 @@ class ItemLarge {
             end;
             if($url) {
                 echo <<< end
-                            <br> URL : <a href = "$url" target = "_blank" > Lien vers Amazon </a >
+                            <br> URL : <a href = "$url" target = "_blank" > Lien</a >
                 end;
             }
             echo <<< end
                         </div >
                     </div>
-                </div>
             end;
                     
         if($pseud !== $_SESSION['pseudo'] || $expir) {
@@ -84,6 +83,7 @@ class ItemLarge {
                 echo <<< end
                 <div>Réservé par $participant :</div>
                 <div>$commentaire</div>
+                </div>
                 end;
             }
         }
@@ -111,7 +111,7 @@ class ItemLarge {
                             <input type="number" name=prixItem min="0.00" step="0.01" value="$tarif"/>
                         </div>
                         <div class="form input">
-                            <input type=text name=urlProduit placeholder="URL du produit sur Amazon" value="$url"/>
+                            <input type=text name=urlProduit placeholder="URL du produit (Amazon)" value="$url"/>
                         </div>
                         <div class="form">
                             <input type=submit value="Modifier">

@@ -12,7 +12,7 @@ a.invisible-link {
 }
 
 .list {
-    padding-bottom:1.5rem;
+    padding-bottom:0.4rem;
 }
 
 .imageObjet {
@@ -29,7 +29,6 @@ a.invisible-link {
 
 footer {
     text-align: center;
-    /* background: #6EA; */
     width: 100%;
 }
 
@@ -68,9 +67,12 @@ header {
 }
 
 #content {
-    margin-top: 3rem;
+    margin-top: 3.1rem;
+    margin-bottom:-0.5rem;
     flex-grow: 1;
-    padding: 10px;
+    padding: 15px;
+    background-color: #edffbc;
+    border: 5px black groove;
 }
 
 body {
@@ -81,6 +83,7 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
+    background: #deffdd;
 }
 
 .form {
@@ -103,4 +106,36 @@ body {
     text-align: center;
     font-weight: bold;
     margin-bottom: 3rem;
+}
+
+.row {
+    background-color: rgba(203, 255, 183, 0.69);
+    border: 2px #9C0 solid;
+    margin-top: 0.6rem;
+}
+
+.invisible-link {
+    margin: 10px;
+}
+
+.itemshort {
+    margin: 10px;
+}
+
+.imageObjet {
+    margin-top: 10px;
+}
+
+.commentaire {
+    border: 5px black groove;
+    background-color: #b6ffd4;
+
+}
+
+.corpsCommentaire {
+    margin-top: 10px;
+}
+
+.modifiItem {
+    margin-top: 1.5rem;
 }
