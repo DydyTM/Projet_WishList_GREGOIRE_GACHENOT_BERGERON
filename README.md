@@ -84,9 +84,9 @@ Une fois que le serveur est démarré, il faudra importer la base de données `w
     - ~~Un formulaire permet de saisir les informations de l'item~~
     - ~~les informations sont : nom et description et prix~~
     - ~~il peut aussi fournir l'URL d'une page externe qui détaille  le produit (sur un site de ecommerce par exemple)~~
-- [ ] 9 Modifier un item
-    - Le créateur d'une liste peut modifier les informations des items de ses listes
-    - Une fois réservé, un item ne peut plus être modifié
+- [x] 9 Modifier un item
+    - ~~Le créateur d'une liste peut modifier les informations des items de ses listes~~
+    - ~~Une fois réservé, un item ne peut plus être modifié~~
 - [x] 10 Supprimer un item
     - ~~Le créateur d'une liste peut supprimer un item d'un de ses listes s'il n'est pas reservé~~
 - [ ] 11 Rajouter une image à un item
