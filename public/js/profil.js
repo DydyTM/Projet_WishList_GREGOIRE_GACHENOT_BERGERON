@@ -44,11 +44,16 @@ if (login != undefined) {
             .then(json => {
                 if (!json)
                     throw new Error()
+                data.append('pass', json.pass)
                 return json.pass
             })
             .then(pass => argon2.verify({pass: e.target[1].value, encoded: pass, type: argon2.ArgonType.Argon2i}))
             .then(_ => data.append('checked', 1))
             .then(_ => fetch('/login', {body: data, method: 'POST'}))
+            .then(response => {
+                if (!response.ok)
+                    throw new Error()
+            })
             .then(_ => {
                 alert("Successfully connected!")
                 window.location.href = '/'

@@ -92,7 +92,7 @@ $app->get('/zrtYes', function () {
 
 // 17 : Créer un compte et 18 : S'authentifier
 $app->post('/login', function () use ($app) {
-    (new cntrls\Profil())->connexion($app->request->post('pseudo'), $app->request->post('checked'));
+    (new cntrls\Profil())->connexion($app->request->post('pseudo'), $app->request->post('pass'), $app->request->post('checked'));
 });
 $app->post('/signup', function () use ($app) {
     (new cntrls\Profil())->créerCompte($app->request->post('pseudo'), $app->request->post('pass'));

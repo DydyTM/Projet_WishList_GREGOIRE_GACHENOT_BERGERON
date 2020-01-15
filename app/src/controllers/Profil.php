@@ -26,7 +26,7 @@ class Profil {
         $_SESSION['pseudo'] = flter_var($pseudo, FILTER_SANITIZE_SPECIAL_CHARS);
     }
 
-    public function connexion($pseudo, $checked) {
+    public function connexion($pseudo, $pass, $checked) {
         $app = Slim::getInstance();
         $u = Utilisateur::where('pseudo', '=', filter_var($pseudo, FILTER_SANITIZE_SPECIAL_CHARS))->first();
 
@@ -36,6 +36,10 @@ class Profil {
 
         if (!$checked) {
             return $app->response = new Response('{"pass":"' . $u['pass'] . '"}', 200, ['Content-Type' => 'application/json']);
+        }
+
+        if ($pass !== $u['pass']) {
+            return $app->response = new Response('', 403, []);
         }
 
         $_SESSION['pseudo'] = $u['pseudo'];
