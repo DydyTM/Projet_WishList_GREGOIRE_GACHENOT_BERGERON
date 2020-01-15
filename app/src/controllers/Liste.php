@@ -38,6 +38,9 @@ class Liste {
         if (!$u)
             return Slim::getInstance()->response = new Response('', 403, []);
 
+        if (empty($titre) || empty($description) || empty($expire))
+            return Slim::getInstance()->response = new Response('', 400, []);
+
         $l = new MListe();
         $l->titre = filter_var($titre, FILTER_SANITIZE_SPECIAL_CHARS);
         $l->description = filter_var($description, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -100,6 +103,10 @@ class Liste {
         $l = MListe::whereIn('token_modif', [$tk]);
         if (!$l)
             return Slim::getInstance()->response = new Response('', 404, []);
+
+        if (empty($titre) || empty($descr) || empty($expir))
+            return Slim::getInstance()->response = new Response('', 400, []);
+
         $l->update(['titre' => filter_var($titre, FILTER_SANITIZE_SPECIAL_CHARS)
                    , 'description' => filter_var($descr, FILTER_SANITIZE_SPECIAL_CHARS)
                    , 'expiration' => filter_var($expir, FILTER_SANITIZE_SPECIAL_CHARS)
@@ -151,6 +158,9 @@ class Liste {
         if (!$l) {
             return Slim::getInstance()->response = new Response('', 404, []);
         }
+
+        if (empty($message))
+            return Slim::getInstance()->response = new Response('', 400, []);
 
         $c = new Commentaires();
         $c->pseudo = filter_var($pseud, FILTER_SANITIZE_SPECIAL_CHARS);

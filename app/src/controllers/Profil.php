@@ -18,6 +18,9 @@ class Profil {
 
     // 17 : creer un compte : OK
     public function créerCompte($pseudo, $mdp) {
+        if (empty($pseudo) || empty($mdp))
+            return Slim::getInstance()->response = new Response('', 400, []);
+
         $l = new Utilisateur();
         $l->pseudo = filter_var($pseudo, FILTER_SANITIZE_SPECIAL_CHARS);
         $l->pass = $mdp;
@@ -29,6 +32,9 @@ class Profil {
     public function connexion($pseudo, $pass, $checked) {
         $app = Slim::getInstance();
         $u = Utilisateur::where('pseudo', '=', filter_var($pseudo, FILTER_SANITIZE_SPECIAL_CHARS))->first();
+
+        if (empty($pseudo) || empty($pass))
+            return $app->response = new Response('', 400, []);
 
         if (!$u) {
             return $app->response = new Response('', 403, []);

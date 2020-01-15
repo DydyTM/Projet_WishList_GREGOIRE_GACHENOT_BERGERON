@@ -10,9 +10,17 @@ if (signup != undefined) {
         e.preventDefault()
 
         let data = new FormData()
-        data.append('pseudo', e.target[0].value)
+        const pseudo = escapeHTMLEncode(e.target[0].value)
+        data.append('pseudo', pseudo)
+
+        if (!pseudo)
+            return alert('Votre pseudo ne peut pas être vide')
 
         let pass = e.target[1].value
+
+        if (!pass || pass.length < 6)
+            return alert('Votre mot de passe ne peut pas être moins long que 6 caractères')
+
         let salt = randomSalt();
 
         argon2.hash({pass, salt, type: argon2.ArgonType.Argon2i})
@@ -37,7 +45,11 @@ if (login != undefined) {
         e.preventDefault();
 
         let data = new FormData()
-        data.append('pseudo', e.target[0].value)
+        const pseudo = escapeHTMLEncode(e.target[0].value)
+        data.append('pseudo', pseudo)
+
+        if (!pseudo)
+            return alert('Votre pseudo ne peut pas être vide')
 
         fetch('/login', {body: data, method: 'POST'})
             .then(response => response.ok ? response.json() : JSON.parse({}))

@@ -68,6 +68,9 @@ class Item {
             return Slim::getInstance()->response = new Response('', 404, []);
         $liste_id = $liste_id['no'];
 
+        if (empty($titre) || empty($description) || empty($prix))
+            return Slim::getInstance()->response = new Response('', 400, []);
+
         $i = new mdls\Item();
         $i->nom = filter_var($titre, FILTER_SANITIZE_SPECIAL_CHARS);
         $i->descr = filter_var($description, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -88,6 +91,9 @@ class Item {
         $i = mdls\Item::whereIn('id', [$id]);
         if (!$i)
             return $app->response = new Response('', 404, []);
+
+        if (empty($nom) || empty($descr) || empty($prix))
+            return $app->response = new Response('', 400, []);
 
         $i->update(['nom' => filter_var($nom, FILTER_SANITIZE_SPECIAL_CHARS)
                    , 'descr' => filter_var($descr, FILTER_SANITIZE_SPECIAL_CHARS)
