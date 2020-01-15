@@ -19,27 +19,26 @@ class Profil {
     // 17 : creer un compte : OK
     public function créerCompte($pseudo, $mdp) {
         $l = new Utilisateur();
-        $l->pseudo = $pseudo;
+        $l->pseudo = filter_var($pseudo, FILTER_SANITIZE_SPECIAL_CHARS);
         $l->pass = $mdp;
         $l->save();
 
-        $_SESSION['pseudo'] = $pseudo;
+        $_SESSION['pseudo'] = flter_var($pseudo, FILTER_SANITIZE_SPECIAL_CHARS);
     }
 
     public function connexion($pseudo, $checked) {
         $app = Slim::getInstance();
-        $u = Utilisateur::where('pseudo', '=', $pseudo)->first();
+        $u = Utilisateur::where('pseudo', '=', filter_var($pseudo, FILTER_SANITIZE_SPECIAL_CHARS))->first();
 
         if (!$u) {
-            $app->response = new Response('{}', 406, ['Content-Type' => 'application/json']);
-            return;
+            return $app->response = new Response('', 403, []);
         }
 
-        if (!$checked)
-            $app->response = new Response('{"pass":"' . $u['pass'] . '"}', 200, ['Content-Type' => 'application/json']);
-        else {
-            $_SESSION['pseudo'] = $u['pseudo'];
+        if (!$checked) {
+            return $app->response = new Response('{"pass":"' . $u['pass'] . '"}', 200, ['Content-Type' => 'application/json']);
         }
+
+        $_SESSION['pseudo'] = $u['pseudo'];
     }
 
     public function déconnecter() {
@@ -48,15 +47,15 @@ class Profil {
 
     public function afficherProfil() {
         $app = Slim::getInstance();
+
         if (!isset($_SESSION['pseudo'])) {
-            $app->response = new Response('', 403, []);
-            return;
+            return $app->response = new Response('', 403, []);
         }
 
         $u = Utilisateur::where('pseudo', '=', $_SESSION['pseudo'])->first();
+
         if (!$u) {
-            $app->response = new Response('', 403, []);
-            return;
+            return $app->response = new Response('', 403, []);
         }
         (new v\ProfilPage($u, $u->listes()->all()))->afficher();
     }
