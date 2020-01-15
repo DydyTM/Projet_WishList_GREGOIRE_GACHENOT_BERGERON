@@ -20,6 +20,8 @@ echo <<< header
         <link href="$CSS/my-wishlist.css" rel="stylesheet">
     </head>
     <body>
+        <noscript>Veuillez activer JavaScript pour pouvoir utiliser le site</noscript>
+
         <header class="page-top">
             <div class="title">
                 <a class="invisible-link" href=/>My wishlist</a>
