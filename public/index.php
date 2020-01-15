@@ -76,6 +76,11 @@ $app->get('/', function () {
     (new cntrls\Index())->page();
 })->name('root');
 
+// 26 : Afficher la liste des créateurs
+$app->get('/listeCreateur', function() {
+    (new cntrls\Liste())->afficherCréateur();
+})->name('listeCreateur');
+
 // EASTER EGGS
 $app->get('/blob', function () {
     (new cntrls\Blob())->pressF();

@@ -100,12 +100,12 @@ Une fois que le serveur est démarré, il faudra importer la base de données `w
 - [x] 14 Partager une liste
     - ~~Une fois la liste entièrement saisie, le créateur peut la partager~~
     - ~~Le partage d'une liste génère une URL avec un token (jeton unique différent du token de modification) destiné à être envoyé aux futurs participants~~
-- [ ] 15 Consulter les réservations d'une de ses listes avant échéance
-    - Le créateur d'une liste partagée peut consulter les réservations effectuées sur sa liste
-    - Seul l'état réservé ou non s'affiche avant la date d'échéance
-    - un cookie permet d'identifier le créateur de la liste qu'il soit authentifié ou non afin de cacher les noms des  participants (seuls les participants voient les noms des  autres participants). On suppose que le créateur accède à la  liste avec son navigateur habituel (celui sur lequel il s'est  déjà authentifié)
-- [ ] 16 Consulter les réservations et messages d'une de ses listes après échéance
-    - Après la date d'échéance de la liste, le créateur authentifié d'une liste partagée peut consulter les réservations effectuées sur sa liste avec les noms des participants et les message associés aux réservations
+- [x] 15 Consulter les réservations d'une de ses listes avant échéance
+    - ~~Le créateur d'une liste partagée peut consulter les réservations effectuées sur sa liste~~
+    - ~~Seul l'état réservé ou non s'affiche avant la date d'échéance~~
+    - ~~un cookie permet d'identifier le créateur de la liste qu'il soit authentifié ou non afin de cacher les noms des  participants (seuls les participants voient les noms des  autres participants). On suppose que le créateur accède à la  liste avec son navigateur habituel (celui sur lequel il s'est  déjà authentifié)~~
+- [x] 16 Consulter les réservations et messages d'une de ses listes après échéance
+    - ~~Après la date d'échéance de la liste, le créateur authentifié d'une liste partagée peut consulter les réservations effectuées sur sa liste avec les noms des participants et les message associés aux réservations~~
 
 #### Extensions :
 
@@ -140,8 +140,8 @@ Une fois que le serveur est démarré, il faudra importer la base de données `w
     - Le upload de fichiers sensibles (PHP ou autres) est rendu  impossible
 - [ ] 25 Créer un compte participant
     - La création d'un compte peut aussi être utile aux participants afin de consulter les participations qu'ils ont saisies et de ne plus saisir leur  nom lors d'une participation
-- [ ] 26 Afficher la liste des créateurs
-    - Tous les utilisateurs peuvent consulter la liste des créateurs qui ont au moins une liste publique active jointe à leur compte.
+- [x] 26 Afficher la liste des créateurs
+    - ~~Tous les utilisateurs peuvent consulter la liste des créateurs qui ont au moins une liste publique active jointe à leur compte.~~
 - [ ] 27 Supprimer son compte
     - Tous les utilisateurs enregistrés peuvent supprimer leur compte
     - La suppression de son compte entraîne la suppression des listes, des items et images, des participations uniquement avant échéance et de tous les messages

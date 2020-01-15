@@ -23,6 +23,7 @@ echo <<< header
         <header class="page-top">
             <div class="title">
                 <a class="invisible-link" href=/>My wishlist</a>
+                <a class="invisible-link" href=/listeCreateur>Liste des créateurs</a>
             </div>
             <span class=profile>
 header;

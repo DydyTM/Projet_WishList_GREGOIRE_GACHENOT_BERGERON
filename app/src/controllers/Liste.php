@@ -131,6 +131,14 @@ class Liste {
         $c->commentaire = $message;
         $c->save();
     }
+
+    public function afficherCréateur() {
+        $app = Slim::getInstance();
+        $l = MListe::where('publique', '=', 1)->get()->all();
+        $u = Utilisateur::whereIn('user_id', array_map(function ($list) { return $list['user_id']; }, $l))->get()->all();
+        //var_dump($u->toArray());
+        (new v\Createur($u))->afficher();
+    }
 }
 
 ?>

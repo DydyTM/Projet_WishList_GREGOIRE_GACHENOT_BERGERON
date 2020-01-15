@@ -58,7 +58,7 @@ class Item {
 
     public function modifierItem($token, $id, $nom, $descr, $prix, $url) {
         $app = Slim::getInstance();
-        $l = mdls\Liste::where('token_modif', '=', $token);
+        $l = mdls\Liste::where('token_visu', '=', $token);
         if(!$l){
             return $app->response = new Response('', 404, []);
         }
