@@ -33,7 +33,7 @@ class Profil {
         $app = Slim::getInstance();
         $u = Utilisateur::where('pseudo', '=', filter_var($pseudo, FILTER_SANITIZE_SPECIAL_CHARS))->first();
 
-        if (empty($pseudo) || empty($pass))
+        if (empty($pseudo))
             return $app->response = new Response('', 400, []);
 
         if (!$u) {
@@ -43,6 +43,9 @@ class Profil {
         if (!$checked) {
             return $app->response = new Response('{"pass":"' . $u['pass'] . '"}', 200, ['Content-Type' => 'application/json']);
         }
+
+        if (empty($pass))
+            return $app->response = new Response('', 400, []);
 
         if ($pass !== $u['pass']) {
             return $app->response = new Response('', 403, []);
