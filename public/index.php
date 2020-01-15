@@ -8,7 +8,6 @@ use wishlist\Chemins;
 use wishlist\controllers as cntrls;
 
 session_start();
-
 (new BDD())
     ->initConnexion()
     ->démarrer();
